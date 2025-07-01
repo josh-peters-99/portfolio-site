@@ -1,0 +1,22 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+    background-color: #1A1A1A;
+    padding: 4rem 2rem;
+    font-family: 'Lato';
+    font-style: normal;
+    color: #F2F2F2;
+}
+
+h1 {
+    font-weight: 400;
+}
+
+h2 {
+    font-weight: 300;
+    font-size: medium;
+}
