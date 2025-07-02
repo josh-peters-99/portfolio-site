@@ -13,7 +13,18 @@
 <body>
     <div class="content">
         <header>
+	    <div class="nav-container">
             <h1>Josh Peters</h1>
+            <div id="my-links">
+                <a href="#index">Home</a>
+                <a href="#projects">Projects</a>
+                <a>Blog</a>
+                <a>Contact</a>
+                <a class="icon" hx-on="click: document.getElementById('my-links').classList.toggle('hidden')">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+	    </div>
             <h2>Old-school learner in a new-school world — because understanding matters.</h2>
         </header>
         <main>
@@ -24,7 +35,7 @@
                 more. My goal is to utilize AI as minimally as possible and to build real understanding 
                 through books, articles, and lots of trial and error. 
             </p>
-        </main>
+	    </main>
     </div>
 </body>
 </html>
