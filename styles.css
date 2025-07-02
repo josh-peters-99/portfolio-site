@@ -53,7 +53,7 @@ header {
   vertical-align: super;
 }
 
-main p {
+#about {
   margin-top: 2rem;
   font-weight: 300;
   line-height: 1.5;
@@ -70,7 +70,13 @@ main {
   margin-top: 8rem;
 }
 
-.hero {
+#hero {
   display: flex;
-  align-items: center;
+  width: 100%;
+}
+
+#hero-text {
+  height: 100%;
+  width: 100%;
+  text-align: right;
 }
