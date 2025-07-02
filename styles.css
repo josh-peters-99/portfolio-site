@@ -17,36 +17,6 @@ body {
     color: #F2F2F2;
 }
 
-.nav-container {
-    overflow: hidden;
-    position: relative;
-}
-
-.nav-container #my-links {
-    display: none;
-}
-
-.nav-container a {
-  color: white;
-  padding: 14px 16px;
-  text-decoration: none;
-  font-size: 17px;
-  display: block;
-}
-
-.nav-container a.icon {
-  background: black;
-  display: block;
-  position: absolute;
-  right: 0;
-  top: 0;
-}
-
-.nav-container a:hover {
-  background-color: #ddd;
-  color: black;
-}
-
 .content {
     max-width: 800px;
     height: 100%;
