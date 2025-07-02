@@ -16,6 +16,18 @@ body {
     color: #F2F2F2;
 }
 
+@media (min-width: 1200px) {
+  body {
+    padding: 4rem 12rem;
+  }
+}
+
+@media (min-width: 1600px) {
+  body {
+    padding: 4rem 24rem;
+  }
+}
+
 a {
   text-decoration: none;
 }
@@ -51,4 +63,14 @@ main p {
   nav {
     display: none;
   }
+}
+
+main {
+  display: flex;
+  margin-top: 8rem;
+}
+
+.hero {
+  display: flex;
+  align-items: center;
 }
