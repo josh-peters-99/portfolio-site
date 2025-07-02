@@ -17,6 +17,35 @@ body {
     color: #F2F2F2;
 }
 
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.nav-container #nav-items {
+  display: none;
+}
+
+.nav-item {
+  text-decoration: none;
+  color: #F2F2F2;
+}
+
+.nav-item:hover {
+  cursor: pointer;
+  background-color: #F2F2F2;
+  color: #1A1A1A;
+}
+
+@media only screen and (min-width: 767px) {
+  .nav-container #nav-items {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
 .content {
     max-width: 800px;
     height: 100%;
