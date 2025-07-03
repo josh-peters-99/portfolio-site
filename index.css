@@ -1,0 +1,57 @@
+#about {
+  margin-top: 2rem;
+  font-weight: 300;
+  line-height: 1.5;
+}
+
+#hero-text {
+  padding: 3em 0 0 0;
+  text-align: center;
+}
+
+#ascii-computer {
+  font-size: xx-small;
+}
+
+#hero {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+/* Tablet and up */
+@media(min-width: 768px) {
+  #hero {
+    flex-direction: row;
+  }
+
+  #hero-text {
+    height: 100%;
+    width: 100%;
+    text-align: right;
+    display: flex;
+    align-items: center;
+    padding: 0 0 0 5em;
+  }
+
+  #ascii-computer {
+    font-size: x-small;
+  }
+}
+
+/* Small desktops */
+@media (min-width: 1024px) {
+  #ascii-computer {
+    font-size: small;
+  }
+}
+
+/* Large desktops or ultra-wide */
+@media (min-width: 1440px) {
+
+}
+
+/* Ultra-wide desktops (e.g. 1920px and up) */
+@media (min-width: 1920px) {
+
+}

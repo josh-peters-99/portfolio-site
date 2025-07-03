@@ -8,18 +8,18 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="base.css"> 
-    <link rel="stylesheet" href="about.css">
+    <link rel="stylesheet" href="../base.css">
+    <link rel="stylesheet" href="base-writing.css">
     <title>Josh Peters</title>
 </head>
 <body>
     <header>
         <h1>Josh Peters</h1>
         <nav id="nav-container">
-            | <a class="nav-item" href="index.html">Home</a> 
-            | <a class="nav-item" href="about.html">About</a> 
+            | <a class="nav-item" href="../index.html">Home</a> 
+            | <a class="nav-item" href="../about.html">About</a> 
             | <a class="nav-item" href="#">Projects</a> 
-            | <a class="nav-item" href="writing.html">Writing</a> 
+            | <a class="nav-item" href="../writing.html">Writing</a> 
             | <a class="nav-item" href="#">Code</a> 
             |
         </nav>
@@ -30,23 +30,28 @@
         <div id="side-panel" class="side-panel hidden">
             <div id="mobile-menu-close" onclick="document.getElementById('side-panel').classList.remove('show');setTimeout(() => {document.getElementById('side-panel').classList.add('hidden');}, 300);">&#10005;</div>
             <nav id="mobile-nav-container">
-                <a class="nav-item" href="index.html">Home</a> 
-                <a class="nav-item" href="about.html">About</a> 
+                <a class="nav-item" href="../index.html">Home</a> 
+                <a class="nav-item" href="../about.html">About</a> 
                 <a class="nav-item" href="#">Projects</a> 
-                <a class="nav-item" href="writing.html">Writing</a> 
+                <a class="nav-item" href="../writing.html">Writing</a> 
                 <a class="nav-item" href="#">Code</a> 
             </nav>
         </div>
     </header>
-    <main>
-        <p id="about">
-            I started my programming journey with React, but quickly realized that knowing a framework 
-            is not enough to be a strong software engineer. Now, I'm going back to the 
-            fundamentals—diving into interpreters, compilers, data structures, operating systems, and 
-            more. My goal is to utilize AI as minimally as possible and to build real understanding 
-            through books, articles, and lots of trial and error
-        </p>
-    </main>
-    <footer></footer>
+  <main>
+    <h2>Go Interpreter</h2>
+    <h3>Notes while building an interpreter in Go, Month-Day-Year</h3>
+    <p>
+      The interpreter will consist of the following parts:
+      <ul>
+        <li>the lexer</li>
+        <li>the parser</li>
+        <li>the Abstract Syntax Tree (AST)</li>
+        <li>the internal object system</li>
+        <li>the evaluator</li>
+      </ul>
+    </p>
+  </main>
+  <footer></footer>
 </body>
 </html>

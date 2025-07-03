@@ -8,20 +8,35 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="base.css">
+    <link rel="stylesheet" href="index.css">
     <title>Josh Peters</title>
 </head>
 <body>
     <header>
         <h1>Josh Peters</h1>
-        <nav>
+        <nav id="nav-container">
             | <a class="nav-item" href="index.html">Home</a> 
             | <a class="nav-item" href="about.html">About</a> 
             | <a class="nav-item" href="#">Projects</a> 
-            | <a class="nav-item" href="#">Writing</a> 
-            | <a class="nav-item" href="#">Code<span class="external-arrow">&#x2934;</span></a> 
+            | <a class="nav-item" href="writing.html">Writing</a> 
+            | <a class="nav-item" href="#">Code</a> 
             |
         </nav>
+        <div id="mobile-menu-open"
+            hx-on:click="document.getElementById('side-panel').classList.add('show'); document.getElementById('side-panel').classList.remove('hidden');">
+            &#9776;
+        </div>
+        <div id="side-panel" class="side-panel hidden">
+            <div id="mobile-menu-close" onclick="document.getElementById('side-panel').classList.remove('show');setTimeout(() => {document.getElementById('side-panel').classList.add('hidden');}, 300);">&#10005;</div>
+            <nav id="mobile-nav-container">
+                <a class="nav-item" href="index.html">Home</a> 
+                <a class="nav-item" href="about.html">About</a> 
+                <a class="nav-item" href="#">Projects</a> 
+                <a class="nav-item" href="writing.html">Writing</a> 
+                <a class="nav-item" href="#">Code</a> 
+            </nav>
+        </div>
     </header>
     <main>
         <div id="hero">

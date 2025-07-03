@@ -1,0 +1,136 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+    background-color: #1A1A1A;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 100vw;
+    padding: 4rem 2rem;
+    font-family: 'Source Code Pro', monospace;
+    font-style: normal;
+    color: #F2F2F2;
+}
+
+a {
+  text-decoration: none;
+  color: #F2F2F2;
+}
+
+a:hover {
+  background-color: #F2F2F2;
+  color: #1A1A1A;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#nav-container {
+  display: none;
+}
+
+.external-arrow {
+  font-size: 0.8em;
+  margin-left: 0.2em;
+  vertical-align: super;
+}
+
+#mobile-menu-open {
+  display: flex;
+  font-size: xxx-large;
+}
+
+#mobile-menu-open:hover {
+  cursor: pointer;
+}
+
+#mobile-menu-close {
+  display: flex;
+  justify-content: end;
+  font-size: xxx-large;
+}
+
+#mobile-menu-close:hover {
+  cursor: pointer;
+}
+
+#mobile-nav-container {
+  margin-top: 3em;
+  display: flex;
+  flex-direction: column;
+  gap: 3em;
+  align-items: center;
+}
+
+.hidden {
+  display: none;
+}
+
+.side-panel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 250px;
+  background-color: #1A1A1A;
+  color: #F2F2F2;
+  padding: 2rem;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+  transform: translateX(100%);
+  transition: transform 0.3s ease;
+  z-index: 1000;
+}
+
+.side-panel.show {
+  transform: translateX(0);
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  margin-top: 8rem;
+}
+
+/* Tablet and up */
+@media(min-width: 768px) {
+  body {
+    padding: 4rem 4rem;
+  }
+}
+
+/* Small desktops */
+@media (min-width: 1024px) {
+  body {
+    padding: 4rem 10rem;
+  }
+
+  #nav-container {
+    display: flex;
+    gap: 0.5rem;
+  }
+
+  #mobile-menu-open {
+    display: none;
+  }
+}
+
+/* Large desktops or ultra-wide */
+@media (min-width: 1440px) {
+  body {
+    padding: 4rem 18rem;
+  }
+}
+
+/* Ultra-wide desktops (e.g. 1920px and up) */
+@media (min-width: 1920px) {
+  body {
+    padding: 4rem 30rem;
+  }
+}
