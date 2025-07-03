@@ -70,13 +70,39 @@ main {
   margin-top: 8rem;
 }
 
+@media (max-width: 800px) {
+  main {
+    margin-top: 5rem;
+  }
+}
+
 #hero {
   display: flex;
   width: 100%;
+}
+
+@media (max-width: 800px) {
+  #hero {
+    flex-direction: column;
+  }
 }
 
 #hero-text {
   height: 100%;
   width: 100%;
   text-align: right;
+  display: flex;
+  align-items: center;
+  padding-left: 5em;
+}
+
+@media (max-width: 800px) {
+  #hero-text {
+    padding: 3em 0 0 0;
+    text-align: center;
+  }
+
+  #ascii-computer {
+    font-size: xx-small;
+  }
 }
