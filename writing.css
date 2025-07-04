@@ -1,6 +1,7 @@
 #in-progress-list {
   margin-top: 1rem;
-  gap: 0.5rem;
+  gap: 0.5em;
+  padding-left: 4em;
 }
 
 li a {

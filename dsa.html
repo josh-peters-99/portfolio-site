@@ -8,8 +8,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="base.css"> 
-    <link rel="stylesheet" href="about.css">
+    <link rel="stylesheet" href="base.css">
+    <link rel="stylesheet" href="dsa.css">
     <title>Josh Peters</title>
 </head>
 <body>
@@ -17,10 +17,10 @@
         <h1>Josh Peters</h1>
         <nav id="nav-container">
             | <a class="nav-item" href="index.html">Home</a> 
-            | <a class="nav-item" href="about.html">About</a> 
             | <a class="nav-item" href="#">Projects</a> 
+            | <a class="nav-item" href="dsa.html">DSA</a> 
             | <a class="nav-item" href="writing.html">Writing</a> 
-            | <a class="nav-item" href="#">Code</a> 
+            | <a class="nav-item" href="https://github.com/josh-peters-99">GitHub<span>&#8594;</span></a> 
             |
         </nav>
         <div id="mobile-menu-open"
@@ -31,7 +31,7 @@
             <div id="mobile-menu-close" onclick="document.getElementById('side-panel').classList.remove('show');setTimeout(() => {document.getElementById('side-panel').classList.add('hidden');}, 300);">&#10005;</div>
             <nav id="mobile-nav-container">
                 <a class="nav-item" href="index.html">Home</a> 
-                <a class="nav-item" href="about.html">About</a> 
+                <a class="nav-item" href="dsa.html">DSA</a> 
                 <a class="nav-item" href="#">Projects</a> 
                 <a class="nav-item" href="writing.html">Writing</a> 
                 <a class="nav-item" href="#">Code</a> 
@@ -39,8 +39,30 @@
         </div>
     </header>
     <main>
-        <p id="about"></p>
+        <h2>Data Structures and Algorithms</h2>
+        <p>
+            I know there's already dozens of sites like LeetCode and Neetcode out there that have explainations for solving 
+            data structure and algorithm problems. I created this page more as a way for me to practice explaining my solutions 
+            and deepen my understanding.
+        </p>
+
+        <h3>Two Pointers</h3>
+        <ul>
+            <li><a href="#">Pair Sum - Sorted<span>&#8594;</span></a></li>
+            <li><a href="#">Triplet Sum<span>&#8594;</span></a></li>
+        </ul>
+
+        <h3>Hash Maps and Sets</h3>
+        <ul>
+            <li><a href="#">Verify Sudoku Board<span>&#8594;</span></a></li>
+            <li><a href="#">Pair Sum - Unsorted<span>&#8594;</span></a></li>
+            <li><a href="#">Zero Striping<span>&#8594;</span></a></li>
+        </ul>
+
+        <h3>Linked Lists</h3>
+        <ul>
+            <li><a href="#">Linked List Reversal<span>&#8594;</span></a></li>
+        </ul>
     </main>
-    <footer></footer>
 </body>
 </html>

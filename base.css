@@ -24,6 +24,7 @@ a {
 a:hover {
   background-color: #F2F2F2;
   color: #1A1A1A;
+  cursor: pointer;
 }
 
 header {
@@ -95,20 +96,13 @@ header {
 main {
   display: flex;
   flex-direction: column;
-  margin-top: 8rem;
+  margin-top: 5rem;
 }
 
 /* Tablet and up */
 @media(min-width: 768px) {
   body {
     padding: 4rem 4rem;
-  }
-}
-
-/* Small desktops */
-@media (min-width: 1024px) {
-  body {
-    padding: 4rem 10rem;
   }
 
   #nav-container {
@@ -119,6 +113,22 @@ main {
   #mobile-menu-open {
     display: none;
   }
+}
+
+/* Small desktops */
+@media (min-width: 1024px) {
+  body {
+    padding: 4rem 10rem;
+  }
+
+  /* #nav-container {
+    display: flex;
+    gap: 0.5rem;
+  }
+
+  #mobile-menu-open {
+    display: none;
+  } */
 }
 
 /* Large desktops or ultra-wide */
