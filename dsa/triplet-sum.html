@@ -39,48 +39,32 @@
       </div>
     </header>
     <main>
-      <h2>Pair Sum - Unsorted</h2>
+      <h2>Triplet Sum</h2>
       <h3>Problem</h3>
       <p>
-        Given an array of integers, return the indexes of any two numbers that add up to a target. 
-        The order of the indexes in the result doesn't matter. If no pair is found, return an empty array.
+        Given an array of integers, return all triplets [a, b, c] such that a + b + c = 0 . The solution must not contain duplicate triplets (e.g., [1, 2, 3] and [2, 3, 1] are considered duplicates). If no such triplets are found, return an empty array.
+        <br>
+        <br>
+        Each triplet can be arranged in any order, and the output can be returned in any order.
       </p>
       <h4>Example</h4>
       <pre>
-        Input: nums = [-1, 5, 7, 4], target = 9
-        Output: [1, 3]
+        Input: nums = [0, -1, 2, -3, 1]
+        Output: [[-3, 1, 2], [-1, 0, 1]]
       </pre>
       <h3>Steps to Solution</h3>
       <ol>
         <li>
-          <b>Initialize a hash map:</b>
+          <b>Initialize an array to store triplets:</b>
           <br>
-          <p class="instruction-desc">This will store numbers from the array as keys and their indices as values.</p>
+          <p class="instruction-desc">This will store arrays containing the 3 numbers from the input array whose sum is equal to 0.</p>
         </li>
         <li>
-          <b>Iterate through the input array using a loop:</b>
-          <br>
-          <p class="instruction-desc">Go through each number in the array one by one, keeping track of the current index.</p></li>
+          <b>Sort the input array</b>
         <li>
-          <b>For each number, calculate the difference:</b>
+          <b>Iterate through the input array one by one:</b>
           <br>
-          <p class="instruction-desc">Subtract the current number from the target value.</p>
-        </li>
-        <li>
-          <b>Check if the difference is already a key in the hash map:</b>
-          <br>
-          <p class="instruction-desc">If it is, return an array with two elements: the index of the difference in map and the current index.</p>
-          <p class="instruction-desc">It it is not, continue to the next step.</p>
-        </li>
-        <li>
-          <b>Add the current number and its index to the hash map:</b>
-          <br>
-          <p class="instruction-desc">Store it as a key-value pair.</p>
-        </li>
-        <li>
-          <b>If the loop completes without finding a matching pair:</b>
-          <br>
-          <p class="instruction-desc">Return an empty array.</p>
+          <p class="instruction-desc"></p>
         </li>
       </ol>
     </main>
