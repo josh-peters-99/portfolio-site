@@ -1,4 +1,12 @@
+h2.page-title {
+  font-size: xxx-large;
+}
+
 h3 {
+  margin-top: 1rem;
+}
+
+.sub-title {
   margin-top: 1rem;
   font-size: small;
 }

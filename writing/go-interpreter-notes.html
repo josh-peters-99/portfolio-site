@@ -17,8 +17,7 @@
         <h1>Josh Peters</h1>
         <nav id="nav-container">
             | <a class="nav-item" href="../index.html">Home</a> 
-            | <a class="nav-item" href="#">Projects</a> 
-            | <a class="nav-item" href="../dsa.html">DSA</a> 
+            | <a class="nav-item" href="../projects.html">Projects</a> 
             | <a class="nav-item" href="../writing.html">Writing</a> 
             | <a class="nav-item" href="https://github.com/josh-peters-99">GitHub<span>&#8594;</span></a> 
             |
@@ -31,16 +30,15 @@
             <div id="mobile-menu-close" onclick="document.getElementById('side-panel').classList.remove('show');setTimeout(() => {document.getElementById('side-panel').classList.add('hidden');}, 300);">&#10005;</div>
             <nav id="mobile-nav-container">
                 <a class="nav-item" href="../index.html">Home</a> 
-                <a class="nav-item" href="#">Projects</a> 
-                <a class="nav-item" href="../dsa.html">DSA</a> 
+                <a class="nav-item" href="../projects.html">Projects</a> 
                 <a class="nav-item" href="../writing.html">Writing</a> 
                 <a class="nav-item" href="https://github.com/josh-peters-99">GitHub</a> 
             </nav>
         </div>
     </header>
   <main>
-    <h2>Go Interpreter</h2>
-    <h3>Notes while building an interpreter in Go, Month-Day-Year</h3>
+    <h2 class="page-title">Go Interpreter</h2>
+    <h4 class="sub-title">Notes while building an interpreter in Go, Month-Day-Year</h4>
     <p>
       The interpreter will consist of the following parts:
       <ul>
@@ -51,6 +49,11 @@
         <li>the evaluator</li>
       </ul>
     </p>
+    <h3>Challenges</h3>
+    <div class="challenges">
+      <input type="checkbox" id="challenge1" name="challenge1" value="challenge1">
+      <label for="challenge1">Add functionality to fully support Unicode and emojis</label><br>
+    </div>
   </main>
   <footer>
     <p>&#169; 2025 Josh Peters Engineering</p>
