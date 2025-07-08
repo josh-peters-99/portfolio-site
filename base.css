@@ -9,7 +9,6 @@ body {
     display: flex;
     flex-direction: column;
     height: 100vh;
-    width: 100vw;
     padding: 4rem 2rem;
     font-family: 'Source Code Pro', monospace;
     font-style: normal;
@@ -98,6 +97,10 @@ main {
   display: flex;
   flex-direction: column;
   margin-top: 5rem;
+}
+
+.section {
+  margin-top: 10rem;
 }
 
 footer {
