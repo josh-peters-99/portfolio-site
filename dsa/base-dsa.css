@@ -1,0 +1,35 @@
+p {
+    margin-top: 2rem;
+}
+
+pre {
+    margin-top: 1rem;
+}
+
+.ascii-code {
+    font-size: xx-small;
+}
+
+/* Tablet and up */
+@media(min-width: 768px) {
+  .ascii-code {
+    font-size: x-small;
+  }
+}
+
+/* Small desktops */
+@media (min-width: 1024px) {
+  .ascii-code {
+    font-size: small;
+  }
+}
+
+/* Large desktops or ultra-wide */
+@media (min-width: 1440px) {
+
+}
+
+/* Ultra-wide desktops (e.g. 1920px and up) */
+@media (min-width: 1920px) {
+
+}

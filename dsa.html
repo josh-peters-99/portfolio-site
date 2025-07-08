@@ -8,19 +8,21 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../base.css">
-    <link rel="stylesheet" href="base-writing.css">
+    <link href="prism/prism.css" rel="stylesheet" />
+    <link rel="stylesheet" href="base.css">
+    <link rel="stylesheet" href="dsa.css">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
     <title>Josh Peters</title>
 </head>
 <body>
     <header>
         <h1>Josh Peters</h1>
         <nav id="nav-container">
-            | <a class="nav-item" href="../index.html">Home</a> 
-            | <a class="nav-item" href="../projects.html">Projects</a> 
-            | <a class="nav-item" href="../dsa.html">DSA</a>
-            | <a class="nav-item" href="../writing.html">Writing</a> 
-            | <a class="nav-item" href="https://github.com/josh-peters-99">GitHub<span>&#8594;</span></a> 
+            | <a class="nav-item" href="index.html">Home</a> 
+            | <a class="nav-item" href="projects.html">Projects</a> 
+            | <a class="nav-item" href="dsa.html">DSA</a>
+            | <a class="nav-item" href="writing.html">Writing</a> 
+            | <a class="nav-item" href="https://github.com/josh-peters-99">GitHub<span class="external-arrow">&#8594;</span></a> 
             |
         </nav>
         <div id="mobile-menu-open"
@@ -30,35 +32,25 @@
         <div id="side-panel" class="side-panel hidden">
             <div id="mobile-menu-close" onclick="document.getElementById('side-panel').classList.remove('show');setTimeout(() => {document.getElementById('side-panel').classList.add('hidden');}, 300);">&#10005;</div>
             <nav id="mobile-nav-container">
-                <a class="nav-item" href="../index.html">Home</a> 
-                <a class="nav-item" href="../projects.html">Projects</a> 
-                <a class="nav-item" href="../dsa.html">DSA</a>
-                <a class="nav-item" href="../writing.html">Writing</a> 
+                <a class="nav-item" href="index.html">Home</a> 
+                <a class="nav-item" href="projects.html">Projects</a> 
+                <a class="nav-item" href="dsa.html">DSA</a>
+                <a class="nav-item" href="writing.html">Writing</a> 
                 <a class="nav-item" href="https://github.com/josh-peters-99">GitHub</a> 
             </nav>
         </div>
     </header>
-  <main>
-    <h2 class="page-title">Go Interpreter</h2>
-    <h4 class="sub-title">Notes while building an interpreter in Go, Month-Day-Year</h4>
-    <p>
-      The interpreter will consist of the following parts:
-      <ul>
-        <li>the lexer</li>
-        <li>the parser</li>
-        <li>the Abstract Syntax Tree (AST)</li>
-        <li>the internal object system</li>
-        <li>the evaluator</li>
-      </ul>
-    </p>
-    <h3>Challenges</h3>
-    <div class="challenges">
-      <input type="checkbox" id="challenge1" name="challenge1" value="challenge1">
-      <label for="challenge1">Add functionality to fully support Unicode and emojis</label><br>
-    </div>
-  </main>
-  <footer>
-    <p>&#169; 2025 Josh Peters Engineering</p>
-  </footer>
+    <main>
+        <h2>Hash Maps and Sets</h2>
+        <ul>
+            <li>
+                <a href="/dsa/hash-maps-and-sets/zero-striping.html">Zero Striping<span class="external-arrow">&#8594;</span></a>
+            </li>
+        </ul>
+    </main>
+    <footer>
+        <p>&#169; 2025 Josh Peters Engineering</p>
+    </footer>
+    <script src="prism/prism.js"></script>
 </body>
 </html>
