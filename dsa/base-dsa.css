@@ -2,6 +2,11 @@ p {
     margin-top: 2rem;
 }
 
+#ascii-container {
+  display: flex;
+  justify-content: center;
+}
+
 pre {
     margin-top: 1rem;
 }
