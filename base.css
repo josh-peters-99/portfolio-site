@@ -158,6 +158,6 @@ footer {
 /* Ultra-wide desktops (e.g. 1920px and up) */
 @media (min-width: 1920px) {
   body {
-    padding: 4rem 32rem;
+    padding: 4rem 48rem;
   }
 }

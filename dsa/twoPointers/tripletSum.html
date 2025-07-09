@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/htmx.org@2.0.6/dist/htmx.min.js" integrity="sha384-Akqfrbj/HpNVo8k11SXBb6TlBWmXXlYQrCSqEWmyKJe+hDm3Z/B2WVG4smwBkRVm" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+    <link href="../../prism/prism.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../../base.css">
+    <link rel="stylesheet" href="/portfolio-site/dsa/base-dsa.css">
+    <!-- <link rel="stylesheet" href="../base-dsa.css" /> -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
+    <title>Josh Peters</title>
+</head>
+<body>
+    <header>
+        <h1>Josh Peters</h1>
+        <nav id="nav-container">
+            | <a class="nav-item" href="../../index.html">Home</a> 
+            | <a class="nav-item" href="../../projects.html">Projects</a> 
+            | <a class="nav-item" href="../../dsa.html">DSA</a>
+            | <a class="nav-item" href="../../writing.html">Writing</a> 
+            | <a class="nav-item" href="https://github.com/josh-peters-99">GitHub<span class="external-arrow">&#8594;</span></a> 
+            |
+        </nav>
+        <div id="mobile-menu-open"
+            hx-on:click="document.getElementById('side-panel').classList.add('show'); document.getElementById('side-panel').classList.remove('hidden');">
+            &#9776;
+        </div>
+        <div id="side-panel" class="side-panel hidden">
+            <div id="mobile-menu-close" onclick="document.getElementById('side-panel').classList.remove('show');setTimeout(() => {document.getElementById('side-panel').classList.add('hidden');}, 300);">&#10005;</div>
+            <nav id="mobile-nav-container">
+                <a class="nav-item" href="../../index.html">Home</a> 
+                <a class="nav-item" href="../../projects.html">Projects</a> 
+                <a class="nav-item" href="../../dsa.html">DSA</a>
+                <a class="nav-item" href="../../writing.html">Writing</a> 
+                <a class="nav-item" href="https://github.com/josh-peters-99">GitHub</a> 
+            </nav>
+        </div>
+    </header>
+    <main>
+        <h2>Triplet Sum</h2>
+        <p><b>Pattern: </b>Two Pointers</p>
+        <p><b>Problem: </b>
+          Given an array of integers, return all triplets <code class="language-bash">[a, b, c]</code> such that <code class="language-bash">a + b + c = 0</code>. 
+          The solution must not contain duplicate triplets (e.g., <code class="language-bash">[1, 2, 3]</code> and <code class="language-bash">[2, 3, 1]</code> 
+          are considered duplicates). If no such triplets are found, return an empty array.
+          <br><br>
+          Each triplet can be arranged in any order, and the output can be returned in any order.
+        </p>
+        <p><b>Key Insight: </b>
+            The brute force solution to this problem would be to use three nested loops to iterate through each combination of three elements. However, this is going 
+            to give us a time complexity of O(n<sup>3</sup>), where n is the length of the input array. We can do better than this.
+            <br><br>
+            Rather than thinking of this problem as <code class="language-bash">a + b + c = 0</code>, I like to view it as <code class="language-bash">b + c = -a</code>. 
+            Using this approach, we only have to iterate through the input array twice. Once to get <code class="language-bash">-a</code> and once to find 
+            <code class="language-bash">b + c</code>. For the second iteration, we can utilize two pointers to find <code class="language-bash">b</code> and 
+            <code class="language-bash">c</code> that combined will equal <code class="language-bash">-a</code>. See the comments in the code for more details.
+        </p>
+        <p><b>Time Complexity: </b>
+          We first sort the array (O(nlog(n)) time. Then, for each element in the input array we call a helper function (O(n)). 
+          Therefore, the overall time complexity is O(nlog(n)) + O(n<sup>2</sup>) = <b>O(n<sup>2</sup>)</b>.
+        </p>
+        <p><b>Space Complexity: </b>Due to the space taken up by Python's sorting algorithm, the space complexity is <b>O(n)</b>.</p>
+        <p><b>Code:</b></p>
+        <pre>
+            <code class="language-python">
+from typing import List
+
+def triplet_sum(nums: List[int]) -> List[List[int]]:
+    triplets = []
+    nums.sort()
+    for i in range(len(nums)):
+        # In order for a + b + c to equal 0, at least one number 
+        # must be a negative value
+        if nums[i] > 0:
+            break
+        # To prevent duplicate of the value a, we check to see 
+        # if the current iteration value is equal to the one before
+        if i > 0 and nums[i] == nums[i - 1]:
+            continue
+        # Get pairs of b + c = -a
+        pairs = pair_sum_all_sorted(nums, i + 1, -nums[i])
+        for pair in pairs:
+            triplets.append([nums[i]] + pair)
+    return triplets
+
+def pair_sum_all_sorted(nums: List[int], start: int, target: int) -> List[List[int]]:
+    pairs = []
+    left, right = start, len(nums) - 1
+    while left < right:
+        sum = nums[left] + nums[right]
+        if sum == target:
+            pairs.append([nums[left], nums[right]])
+            left += 1
+            # Check to prevent duplicates of the value b
+            while left < right and nums[left] == nums[left - 1]:
+                left += 1
+        elif sum < target:
+            left += 1
+        else:
+            right -= 1
+    return pairs
+            </code>
+        </pre>
+    </main>
+    <footer>
+        <p>&#169; 2025 Josh Peters Engineering</p>
+    </footer>
+    <script src="../../prism/prism.js"></script>
+</body>
+</html>

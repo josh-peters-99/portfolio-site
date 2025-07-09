@@ -89,5 +89,16 @@ h2 {
 
 /* Ultra-wide desktops (e.g. 1920px and up) */
 @media (min-width: 1920px) {
+  body {
+    padding-left: 32rem;
+    padding-right: 32rem;
+  }
+}
 
+/* XL-Ultra-wide desktops */
+@media (min-width: 2310px) {
+  body {
+    padding-left: 48rem;
+    padding-right: 48rem;
+  }
 }
