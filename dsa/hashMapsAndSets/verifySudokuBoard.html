@@ -81,14 +81,44 @@
             </pre>
         </div>
         <p><b>Key Insight: </b>
-
+          To solve this problem we will make use of hash sets. Create an individual hash set for rows, columns, and subgrids. 
+          Now, traverse through the board skipping anything that is equal to 0 and checking any other integer to see if it is 
+          in the rows, columns, or subgrid hash sets. If it is not, then add it to the corresponding row, column, and subgrid. 
+          If we traverse all the way through the board and don't discover any duplicates in the rows, columns, or subgrid sets, 
+          then return true.
         </p>
-        <p><b>Time Complexity: </b></p>
-        <p><b>Space Complexity: </b></p>
+        <p><b>Time Complexity: </b>O(n^2) where n is the number of rows and columns.</p>
+        <p><b>Space Complexity: </b>O(n) per row, column, and subgrid group.</p>
         <p><b>Code:</b></p>
         <pre>
             <code class="language-python">
+from typing import List
 
+def verify_sudoku_board(board: List[List[int]]) -> bool:
+    if not board or not board[0]:
+      return False
+
+    rows_set = [set() for _ in range(9)]
+    cols_set = [set() for _ in range(9)]
+    subgrids_set = [[set() for _ in range(3)] for _ in range(3)]
+
+    for r in range(9):
+      for c in range(9):
+        num = board[r][c]
+        if num == 0:
+          continue
+        if num in rows_set[r]:
+          return False
+        if num in cols_set[c]:
+          return False
+        if num in subgrids_set[r // 3][c // 3]:
+          return False
+        
+        rows_set[r].add(num)
+        cols_set[c].add(num)
+        subgrids_set[r // 3][c // 3].add(num)
+
+    return True
             </code>
         </pre>
     </main>
