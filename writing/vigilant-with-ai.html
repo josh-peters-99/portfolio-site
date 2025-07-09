@@ -8,20 +8,19 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="base.css">
-    <link rel="stylesheet" href="writing.css">
-    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <link rel="stylesheet" href="../base.css">
+    <link rel="stylesheet" href="base-writing.css">
     <title>Josh Peters</title>
 </head>
 <body>
     <header>
         <h1>Josh Peters</h1>
         <nav id="nav-container">
-            | <a class="nav-item" href="index.html">Home</a> 
-            | <a class="nav-item" href="projects.html">Projects</a> 
-            | <a class="nav-item" href="dsa.html">DSA</a>
-            | <a class="nav-item" href="writing.html">Writing</a> 
-            | <a class="nav-item" href="https://github.com/josh-peters-99">GitHub<span class="external-arrow">&#8594;</span></a> 
+            | <a class="nav-item" href="../index.html">Home</a> 
+            | <a class="nav-item" href="../projects.html">Projects</a> 
+            | <a class="nav-item" href="../dsa.html">DSA</a>
+            | <a class="nav-item" href="../writing.html">Writing</a> 
+            | <a class="nav-item" href="https://github.com/josh-peters-99">GitHub<span>&#8594;</span></a> 
             |
         </nav>
         <div id="mobile-menu-open"
@@ -31,25 +30,23 @@
         <div id="side-panel" class="side-panel hidden">
             <div id="mobile-menu-close" onclick="document.getElementById('side-panel').classList.remove('show');setTimeout(() => {document.getElementById('side-panel').classList.add('hidden');}, 300);">&#10005;</div>
             <nav id="mobile-nav-container">
-                <a class="nav-item" href="index.html">Home</a> 
-                <a class="nav-item" href="projects.html">Projects</a> 
-                <a class="nav-item" href="dsa.html">DSA</a>
-                <a class="nav-item" href="writing.html">Writing</a> 
+                <a class="nav-item" href="../index.html">Home</a> 
+                <a class="nav-item" href="../projects.html">Projects</a> 
+                <a class="nav-item" href="../dsa.html">DSA</a>
+                <a class="nav-item" href="../writing.html">Writing</a> 
                 <a class="nav-item" href="https://github.com/josh-peters-99">GitHub</a> 
             </nav>
         </div>
     </header>
-    <main>
-        <h2>All Writings</h2>
-        <h3>2025</h3>
-        <ul>
-            <li>
-                <a href="writing/vigilant-with-ai.html">Being Vigilant with AI<span class="external-arrow">&#8594;</span></a>
-            </li>
-        </ul>
-    </main>
-    <footer>
-        <p>&#169; 2025 Josh Peters Engineering</p>
-    </footer>
+  <main>
+    <h2 class="page-title">Being Vigilant with AI</h2>
+    <p>
+        As a new computer science graduate, I am being extremely vigilant about the ways in which I use AI. 
+        
+    </p>
+  </main>
+  <footer>
+    <p>&#169; 2025 Josh Peters Engineering</p>
+  </footer>
 </body>
 </html>

@@ -27,6 +27,10 @@ a:hover {
   cursor: pointer;
 }
 
+p {
+  line-height: 1.6;
+}
+
 header {
   display: flex;
   justify-content: space-between;
@@ -131,7 +135,7 @@ footer {
 /* Small desktops */
 @media (min-width: 1024px) {
   body {
-    padding: 4rem 10rem;
+    padding: 4rem 16rem;
   }
 
   /* #nav-container {
@@ -147,13 +151,13 @@ footer {
 /* Large desktops or ultra-wide */
 @media (min-width: 1440px) {
   body {
-    padding: 4rem 18rem;
+    padding: 4rem 24rem;
   }
 }
 
 /* Ultra-wide desktops (e.g. 1920px and up) */
 @media (min-width: 1920px) {
   body {
-    padding: 4rem 30rem;
+    padding: 4rem 32rem;
   }
 }
