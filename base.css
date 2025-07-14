@@ -30,7 +30,7 @@ a:hover {
 }
 
 h2.page-title {
-  font-size: xxx-large;
+  font-size: xx-large;
   margin-top: 0;
 }
 
@@ -140,6 +140,10 @@ footer {
 
   #mobile-menu-open {
     display: none;
+  }
+
+  h2.page-title {
+    font-size: xxx-large;
   }
 }
 

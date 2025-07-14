@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/htmx.org@2.0.6/dist/htmx.min.js" integrity="sha384-Akqfrbj/HpNVo8k11SXBb6TlBWmXXlYQrCSqEWmyKJe+hDm3Z/B2WVG4smwBkRVm" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+    <link href="../../prism/prism.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../../base.css">
+    <!-- <link rel="stylesheet" href="../base-dsa.css"/> -->
+    <link rel="stylesheet" href="/portfolio-site/dsa/base-dsa.css">
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
+    <title>Josh Peters</title>
+</head>
+<body>
+    <header>
+        <h1>Josh Peters</h1>
+        <nav id="nav-container">
+            | <a class="nav-item" href="../../index.html">Home</a> 
+            | <a class="nav-item" href="../../projects.html">Projects</a> 
+            | <a class="nav-item" href="../../dsa.html">DSA</a>
+            | <a class="nav-item" href="../../writing.html">Writing</a> 
+            | <a class="nav-item" href="https://github.com/josh-peters-99">GitHub<span class="external-arrow">&#8594;</span></a> 
+            |
+        </nav>
+        <div id="mobile-menu-open"
+            hx-on:click="document.getElementById('side-panel').classList.add('show'); document.getElementById('side-panel').classList.remove('hidden');">
+            &#9776;
+        </div>
+        <div id="side-panel" class="side-panel hidden">
+            <div id="mobile-menu-close" onclick="document.getElementById('side-panel').classList.remove('show');setTimeout(() => {document.getElementById('side-panel').classList.add('hidden');}, 300);">&#10005;</div>
+            <nav id="mobile-nav-container">
+                <a class="nav-item" href="../../index.html">Home</a> 
+                <a class="nav-item" href="../../projects.html">Projects</a> 
+                <a class="nav-item" href="../../dsa.html">DSA</a>
+                <a class="nav-item" href="../../writing.html">Writing</a> 
+                <a class="nav-item" href="https://github.com/josh-peters-99">GitHub</a> 
+            </nav>
+        </div>
+    </header>
+    <main>
+      <section>
+        <h2 class="page-title">Linked List Reversal</h2>
+        <p><b>Pattern: </b>Linked Lists</p>
+        <p><b>Problem: </b>
+            Reverse a singly linked list. (This problem has two solutions - )
+        </p>
+        <div id="ascii-container">
+            <pre class="ascii-code">
+( 1 ) --> ( 2 ) --> ( 4 ) --> ( 7 ) --> ( 3 )
+
+                      <span style="font-size: xx-large">&#8595;</span>
+
+( 3 ) --> ( 7 ) --> ( 4 ) --> ( 2 ) --> ( 1 )
+            </pre>
+        </div>
+        <p><b>Key Insight: </b>
+          
+        </p>
+        <p><b>Time Complexity: </b>O(n) where n is the number of nodes in the linked list.</p>
+        <p><b>Space Complexity: </b>O(1)</p>
+        <p><b>Code:</b></p>
+        <pre>
+            <code class="language-python">
+            </code>
+        </pre>
+      </section>
+    </main>
+    <footer>
+        <p>&#169; 2025 Josh Peters Engineering</p>
+    </footer>
+    <script src="../../prism/prism.js"></script>
+</body>
+</html>
