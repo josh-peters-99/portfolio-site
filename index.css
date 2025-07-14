@@ -1,3 +1,14 @@
+/* HTML Tag Level */
+h2 {
+  text-align: center;
+}
+
+/* Class Level */
+.working-list-desc {
+  margin-top: 0.5em;
+}
+
+/* ID Level */
 #about {
   margin-top: 2rem;
   font-weight: 300;
@@ -20,60 +31,13 @@
   width: 100%;
 }
 
-h2 {
-  text-align: center;
-}
-
 #working-list {
   text-align: center;
-  list-style-position: inside;
-}
-
-#working-list li {
-  margin-top: 1rem;
-}
-
-.working-list-desc {
-  margin-top: 0.5em;
+  list-style-position: inside; /* centers bullet points as well as text */
 }
 
 /* Tablet and up */
-@media(min-width: 768px) {
-  #hero {
-    flex-direction: row;
-  }
-
-  #hero-text {
-    height: 100%;
-    width: 100%;
-    text-align: right;
-    display: flex;
-    align-items: center;
-    padding: 0 0 0 5em;
-  }
-
-  #ascii-computer {
-    font-size: x-small;
-  }
-
-  h2 {
-    text-align: left;
-  }
-
-  #working-list {
-    text-align: left;
-    padding-left: 4em;
-  }
-
-  #working-list li {
-    margin-top: 1rem;
-  }
-
-  .working-list-desc {
-    padding-left: 4em;
-    margin-top: 0.5em;
-  }
-}
+@media(min-width: 768px) {}
 
 /* Small desktops */
 @media (min-width: 1024px) {
@@ -82,23 +46,5 @@ h2 {
   }
 }
 
-/* Large desktops or ultra-wide */
-@media (min-width: 1440px) {
-
-}
-
-/* Ultra-wide desktops (e.g. 1920px and up) */
-@media (min-width: 1920px) {
-  body {
-    padding-left: 32rem;
-    padding-right: 32rem;
-  }
-}
-
-/* XL-Ultra-wide desktops */
-@media (min-width: 2310px) {
-  body {
-    padding-left: 48rem;
-    padding-right: 48rem;
-  }
-}
+/* Large desktops */
+@media (min-width: 1440px) {}

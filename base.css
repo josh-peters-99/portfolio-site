@@ -9,10 +9,12 @@ body {
     display: flex;
     flex-direction: column;
     height: 100vh;
+    margin: 0 auto;
     padding: 4rem 2rem;
     font-family: 'Source Code Pro', monospace;
     font-style: normal;
     color: #F2F2F2;
+    max-width: 800px;
 }
 
 a {
@@ -99,11 +101,10 @@ main {
   flex: 1;
   display: flex;
   flex-direction: column;
-  margin-top: 5rem;
 }
 
-.section {
-  margin-top: 10rem;
+section {
+  margin-top: 8rem;
 }
 
 footer {
@@ -118,10 +119,6 @@ footer {
 
 /* Tablet and up */
 @media(min-width: 768px) {
-  body {
-    padding: 4rem 4rem;
-  }
-
   #nav-container {
     display: flex;
     gap: 0.5rem;
@@ -134,30 +131,10 @@ footer {
 
 /* Small desktops */
 @media (min-width: 1024px) {
-  body {
-    padding: 4rem 16rem;
-  }
 
-  /* #nav-container {
-    display: flex;
-    gap: 0.5rem;
-  }
-
-  #mobile-menu-open {
-    display: none;
-  } */
 }
 
 /* Large desktops or ultra-wide */
 @media (min-width: 1440px) {
-  body {
-    padding: 4rem 24rem;
-  }
-}
 
-/* Ultra-wide desktops (e.g. 1920px and up) */
-@media (min-width: 1920px) {
-  body {
-    padding: 4rem 48rem;
-  }
 }
