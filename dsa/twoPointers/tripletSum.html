@@ -42,32 +42,33 @@
         </div>
     </header>
     <main>
-        <h2>Triplet Sum</h2>
-        <p><b>Pattern: </b>Two Pointers</p>
-        <p><b>Problem: </b>
-          Given an array of integers, return all triplets <code class="language-bash">[a, b, c]</code> such that <code class="language-bash">a + b + c = 0</code>. 
-          The solution must not contain duplicate triplets (e.g., <code class="language-bash">[1, 2, 3]</code> and <code class="language-bash">[2, 3, 1]</code> 
-          are considered duplicates). If no such triplets are found, return an empty array.
-          <br><br>
-          Each triplet can be arranged in any order, and the output can be returned in any order.
-        </p>
-        <p><b>Key Insight: </b>
-            The brute force solution to this problem would be to use three nested loops to iterate through each combination of three elements. However, this is going 
-            to give us a time complexity of O(n<sup>3</sup>), where n is the length of the input array. We can do better than this.
+        <section>
+            <h2 class="page-title">Triplet Sum</h2>
+            <p><b>Pattern: </b>Two Pointers</p>
+            <p><b>Problem: </b>
+            Given an array of integers, return all triplets <code class="language-bash">[a, b, c]</code> such that <code class="language-bash">a + b + c = 0</code>. 
+            The solution must not contain duplicate triplets (e.g., <code class="language-bash">[1, 2, 3]</code> and <code class="language-bash">[2, 3, 1]</code> 
+            are considered duplicates). If no such triplets are found, return an empty array.
             <br><br>
-            Rather than thinking of this problem as <code class="language-bash">a + b + c = 0</code>, I like to view it as <code class="language-bash">b + c = -a</code>. 
-            Using this approach, we only have to iterate through the input array twice. Once to get <code class="language-bash">-a</code> and once to find 
-            <code class="language-bash">b + c</code>. For the second iteration, we can utilize two pointers to find <code class="language-bash">b</code> and 
-            <code class="language-bash">c</code> that combined will equal <code class="language-bash">-a</code>. See the comments in the code for more details.
-        </p>
-        <p><b>Time Complexity: </b>
-          We first sort the array (O(nlog(n)) time. Then, for each element in the input array we call a helper function (O(n)). 
-          Therefore, the overall time complexity is O(nlog(n)) + O(n<sup>2</sup>) = <b>O(n<sup>2</sup>)</b>.
-        </p>
-        <p><b>Space Complexity: </b>Due to the space taken up by Python's sorting algorithm, the space complexity is <b>O(n)</b>.</p>
-        <p><b>Code:</b></p>
-        <pre>
-            <code class="language-python">
+            Each triplet can be arranged in any order, and the output can be returned in any order.
+            </p>
+            <p><b>Key Insight: </b>
+                The brute force solution to this problem would be to use three nested loops to iterate through each combination of three elements. However, this is going 
+                to give us a time complexity of O(n<sup>3</sup>), where n is the length of the input array. We can do better than this.
+                <br><br>
+                Rather than thinking of this problem as <code class="language-bash">a + b + c = 0</code>, I like to view it as <code class="language-bash">b + c = -a</code>. 
+                Using this approach, we only have to iterate through the input array twice. Once to get <code class="language-bash">-a</code> and once to find 
+                <code class="language-bash">b + c</code>. For the second iteration, we can utilize two pointers to find <code class="language-bash">b</code> and 
+                <code class="language-bash">c</code> that combined will equal <code class="language-bash">-a</code>. See the comments in the code for more details.
+            </p>
+            <p><b>Time Complexity: </b>
+            We first sort the array (O(nlog(n)) time. Then, for each element in the input array we call a helper function (O(n)). 
+            Therefore, the overall time complexity is O(nlog(n)) + O(n<sup>2</sup>) = <b>O(n<sup>2</sup>)</b>.
+            </p>
+            <p><b>Space Complexity: </b>Due to the space taken up by Python's sorting algorithm, the space complexity is <b>O(n)</b>.</p>
+            <p><b>Code:</b></p>
+            <pre>
+                <code class="language-python">
 from typing import List
 
 def triplet_sum(nums: List[int]) -> List[List[int]]:
@@ -104,8 +105,9 @@ def pair_sum_all_sorted(nums: List[int], start: int, target: int) -> List[List[i
         else:
             right -= 1
     return pairs
-            </code>
-        </pre>
+                </code>
+            </pre>
+        </section>
     </main>
     <footer>
         <p>&#169; 2025 Josh Peters Engineering</p>

@@ -1,7 +1,3 @@
-p {
-    margin-top: 2rem;
-}
-
 #ascii-container {
   display: flex;
   justify-content: center;
@@ -30,11 +26,4 @@ pre {
 }
 
 /* Large desktops or ultra-wide */
-@media (min-width: 1440px) {
-
-}
-
-/* Ultra-wide desktops (e.g. 1920px and up) */
-@media (min-width: 1920px) {
-
-}
+@media (min-width: 1440px) {}

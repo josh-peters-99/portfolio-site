@@ -29,8 +29,22 @@ a:hover {
   cursor: pointer;
 }
 
+h2.page-title {
+  font-size: xxx-large;
+  margin-top: 0;
+}
+
+h2 {
+  margin-top: 2rem;
+}
+
 p {
   line-height: 1.6;
+  margin-top: 2rem;
+}
+
+li {
+  margin-top: 1rem;
 }
 
 header {

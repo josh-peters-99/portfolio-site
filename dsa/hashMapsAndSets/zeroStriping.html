@@ -42,11 +42,12 @@
         </div>
     </header>
     <main>
-        <h2>Zero Striping</h2>
-        <p><b>Pattern: </b>Hash Maps and Sets</p>
-        <p><b>Problem: </b>For each zero in an <code class="language-bash">m x n</code> matrix, set its entire row and column to zero in place.</p>
-        <div id="ascii-container">
-            <pre class="ascii-code">
+        <section>
+            <h2 class="page-title">Zero Striping</h2>
+            <p><b>Pattern: </b>Hash Maps and Sets</p>
+            <p><b>Problem: </b>For each zero in an <code class="language-bash">m x n</code> matrix, set its entire row and column to zero in place.</p>
+            <div id="ascii-container">
+                <pre class="ascii-code">
     0    1    2    3    4                    0    1    2    3    4
   +----+----+----+----+----+               +----+----+----+----+----+
 0 | 1  | 2  | 3  | 4  | 5  |             0 | 1  | 0  | 3  | 4  | 0  |
@@ -57,25 +58,25 @@
   +----+----+----+----+----+               +----+----+----+----+----+
 3 | 16 | 17 | 18 | 19 | 0  |             3 | 0  | 0  | 0  | 0  | 0  |
   +----+----+----+----+----+               +----+----+----+----+----+
-            </pre>
-        </div>
-        <p><b>Key Insight: </b>
-            The brute force solution to this problem would be to create two lists (one for columns, one for rows), 
-            iterate through the matrix, and add markers to the lists indicating where the 0's are located in the matrix. 
-            The time complexity for this approach is O(m * n) but the space complexity is O(m + n). 
-            <br>
-            <br>
-            While we can't improve the time complexity, there is a way to improve the space complexity. Rather than 
-            creating two lists to store the markers for the 0's locations, we can simply embed our markers inside of 
-            the matrix in our 0th column and 0th row. With the markers embedded in the 0th column and 0th row, we can 
-            then traverse throught the matrix (excluding the 0th column and 0th row) and set zeroes at each column and 
-            row that corresponds to the zero markers. 
-        </p>
-        <p><b>Time Complexity: </b>O(m * n) where m is the number of columns in the matrix and n is the number of rows in the matrix.</p>
-        <p><b>Space Complexity: </b>O(1) we are storing the 0 markers within the matrix itself, so the space complexity is constant.</p>
-        <p><b>Code:</b></p>
-        <pre>
-            <code class="language-python">
+                </pre>
+            </div>
+            <p><b>Key Insight: </b>
+                The brute force solution to this problem would be to create two lists (one for columns, one for rows), 
+                iterate through the matrix, and add markers to the lists indicating where the 0's are located in the matrix. 
+                The time complexity for this approach is O(m * n) but the space complexity is O(m + n). 
+                <br>
+                <br>
+                While we can't improve the time complexity, there is a way to improve the space complexity. Rather than 
+                creating two lists to store the markers for the 0's locations, we can simply embed our markers inside of 
+                the matrix in our 0th column and 0th row. With the markers embedded in the 0th column and 0th row, we can 
+                then traverse throught the matrix (excluding the 0th column and 0th row) and set zeroes at each column and 
+                row that corresponds to the zero markers. 
+            </p>
+            <p><b>Time Complexity: </b>O(m * n) where m is the number of columns in the matrix and n is the number of rows in the matrix.</p>
+            <p><b>Space Complexity: </b>O(1) we are storing the 0 markers within the matrix itself, so the space complexity is constant.</p>
+            <p><b>Code:</b></p>
+            <pre>
+                <code class="language-python">
 from typing import List
 
 def zero_striping(matrix: List[List[int]]) -> None:
@@ -121,8 +122,9 @@ def zero_striping(matrix: List[List[int]]) -> None:
     if first_col_has_zero:
         for r in range(n):
             matrix[r][0] = 0
-            </code>
-        </pre>
+                </code>
+            </pre>
+        </section>
     </main>
     <footer>
         <p>&#169; 2025 Josh Peters Engineering</p>
