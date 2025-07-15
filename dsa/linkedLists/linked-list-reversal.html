@@ -46,7 +46,7 @@
         <h2 class="page-title">Linked List Reversal</h2>
         <p><b>Pattern: </b>Linked Lists</p>
         <p><b>Problem: </b>
-            Reverse a singly linked list. (This problem has two solutions - )
+            Reverse a singly linked list. (This problem has two solutions - an iterative solution & a recursive solution. Both are explained.)
         </p>
         <div id="ascii-container">
             <pre class="ascii-code">
@@ -58,13 +58,72 @@
             </pre>
         </div>
         <p><b>Key Insight: </b>
-          
+          Be sure that you do not create a new list but rather reverse the list you are given.
+          <br>
+          <br>
+          To solve this problem, we need to reverse the pointers for each node that point to the next node in the list. The iterative solution involes the following steps:
+          <br>
+          <br>
+          1. At the current node in the iteration, store a reference for the next node.
+          <br>
+          2. Change the current node's next pointer to point to the previous node.
+          <br>
+          3. Move the previous node and the current node forward by one.
+          <br>
+          4. Return the previous node as the head of the reversed linked list.
+          <br>
+          <br>
+          Now, to solve this problem using recursion. We will call the linked list reversal function within itself to reverse the sublist after the current node. This will 
+          reverse ever node's pointer except the head node. For example, if we had the following linked list:
+            <div id="ascii-container">
+                <pre class="ascii-code">
+( 1 ) --> ( 2 ) --> ( 3 ) --> ( 4 )
+                </pre>
+            </div>
+            <br>
+            After calling the recursive function, it would look like this:
+            <div id="ascii-container">
+                <pre class="ascii-code">
+( 1 ) --> ( 2 ) <-- ( 3 ) <-- ( 4 )
+                </pre>
+            </div>
+            <br>
+            1 is still the head. So to make 2 point to 1, we can set <code class="language-python">head.next.next</code>. 2 now points to 1 but 1 is still pointing to 2. Now we set 
+            <code class="language-pyton">head.next = None</code>.
         </p>
-        <p><b>Time Complexity: </b>O(n) where n is the number of nodes in the linked list.</p>
-        <p><b>Space Complexity: </b>O(1)</p>
+        <p><b>Time Complexity: </b>For both solutions, O(n) is the time complexity. Where n is the number of nodes in the linked list.</p>
+        <p><b>Space Complexity: </b>For the iterative solution, the space complexity is O(1). For the recursive solution, the space complexity is O(n) because the stack space taken up by the recursive call stack.</p>
         <p><b>Code:</b></p>
         <pre>
             <code class="language-python">
+from ds import ListNode
+
+"""
+Definition of ListNode:
+class ListNode:
+    def __init__(self, val=None, next=None):
+        self.val = val
+        self.next = next
+"""
+
+# ITERATIVE SOLUTION
+def linked_list_reversal(head: ListNode) -> ListNode:
+    prev_node, curr_node = None, head
+    while curr_node:
+        next_node = curr_node.next
+        curr_node.next = prev_node
+        prev_node = curr_node
+        curr_node = next_node
+    return prev_node
+
+# RECURSIVE SOLUTION
+def linked_list_reversal(head: ListNode) -> ListNode:
+    if not head or not head.next:
+        return head
+    new_head = linked_list_reversal(head.next)
+    head.next.next = head
+    head.next = None
+    return new_head
             </code>
         </pre>
       </section>
