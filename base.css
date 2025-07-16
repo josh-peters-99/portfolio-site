@@ -131,6 +131,11 @@ footer {
   padding: 10rem 3rem 10rem 3rem;
 }
 
+.date {
+  font-size: small;
+  font-style: italic;
+}
+
 /* Tablet and up */
 @media(min-width: 768px) {
   #nav-container {

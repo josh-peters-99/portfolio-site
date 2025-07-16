@@ -10,7 +10,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
     <link href="../../prism/prism.css" rel="stylesheet" />
     <link rel="stylesheet" href="../../base.css">
-    <!-- <link rel="stylesheet" href="/portfolio-site/dsa/base-dsa.css"> -->
     <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
     <title>Josh Peters</title>
 </head>
@@ -43,77 +42,42 @@
     <main>
         <section>
             <h2 class="page-title">The Lexer</h2>
-            <p>The purpose of the lexer is to analyze the source code and convert it into data structures called "tokens" that will be passed on to the parser.</p>
-            <p>I will be using the Go language for my interpreter. First, I will create a structure and definitions for the tokens.</p>
-            <code class="language-go">
-                package token
-
-                type TokenType string
-
-                type Token struct {
-                    Type TokenType
-                    Literal string
-                }
-
-                const (
-                    ILLEGAL = "ILLEGAL"
-                    EOF = "EOF"
-
-                    // Identifiers + literals
-                    IDENT = "IDENT"
-                    INT = "INT"
-
-                    // Operators
-                    ASSIGN = "="
-                    BANG = "!"
-                    PLUS = "+"
-                    MINUS = "-"
-                    ASTERISK = "*"
-                    SLASH = "/"
-                    LT = "<"
-                    GT = ">"
-                    EQ = "=="
-                    NOT_EQ = "!="
-
-                    // Delimeters
-                    COMMA = ","
-                    SEMICOLON = ";"
-                    LPAREN = "("
-                    RPAREN = ")"
-                    LBRACE = "{"
-                    RBRACE = "}"
-
-                    // Keywords
-                    FUNCTION = "FUNCTION"
-                    LET = "LET"
-                    TRUE = "TRUE"
-                    FALSE = "FALSE"
-                    IF = "IF"
-                    ELSE = "ELSE"
-                    RETURN = "RETURN"
-                )
-
-                var keywords = map[strimg]TokenType {
-                    "fn": FUNCTION,
-                    "let": LET,
-                    "true": TRUE,
-                    "false": FALSE,
-                    "if": IF,
-                    "else": ELSE,
-                    "return": RETURN,
-                }
-
-                func LookupIdent(ident string) TokenType {
-                    if tok, ok := keywords[ident]; ok {
-                        return tok
-                    }
-                    return IDENT
-                }
-            </code>
-            <pre>
-                <code class="language-go">
-                </code>
-            </pre>
+            <h2>Overview</h2>
+            <p>
+                The purpose of the lexer is to analyze the source code and convert it into data structures called "tokens" that will be passed on to the parser. For example, if the following was fed into a lexer:
+                <br><br>
+                <code class="language-bash">let x = 3 * 5;</code>
+                <br><br>
+                The lexer would output something like this:
+                <pre>
+                    <code class="language-bash">
+[
+    LET,
+    IDENTIFIER("x")
+    EQUAL_SIGN,
+    INTEGER(3),
+    ASTERISK,
+    INTEGER(5),
+    SEMICOLON
+]
+                    </code>
+                </pre>
+                As you can see, the lexer breaks raw input down into small pieces or "tokens" that can then be used by the parser to create an abstract syntax tree.
+            </p>
+            <h2>Token Definition</h2>
+            <p>
+                Let's begin my defining our tokens. This is a generalization but most programming languages can be broken down into tokens that fit into 1 of 5 categories:
+                <br><br>
+                - Identifiers: These tokens are created by the user. They are commonly used as variable names or function names.
+                <br><br>
+                - Literals
+                <br><br>
+                - Operators
+                <br><br>
+                - Delimiters
+                <br><br>
+                - Keywords
+            </p>
         </section>
     </main>
     <footer>
