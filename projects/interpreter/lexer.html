@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/htmx.org@2.0.6/dist/htmx.min.js" integrity="sha384-Akqfrbj/HpNVo8k11SXBb6TlBWmXXlYQrCSqEWmyKJe+hDm3Z/B2WVG4smwBkRVm" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+    <link href="../../prism/prism.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../../base.css">
+    <!-- <link rel="stylesheet" href="/portfolio-site/dsa/base-dsa.css"> -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
+    <title>Josh Peters</title>
+</head>
+<body>
+    <header>
+        <h1>Josh Peters</h1>
+        <nav id="nav-container">
+            | <a class="nav-item" href="../../index.html">Home</a> 
+            | <a class="nav-item" href="../../projects.html">Projects</a> 
+            | <a class="nav-item" href="../../dsa.html">DSA</a>
+            | <a class="nav-item" href="../../writing.html">Writing</a> 
+            | <a class="nav-item" href="https://github.com/josh-peters-99">GitHub<span class="external-arrow">&#8594;</span></a> 
+            |
+        </nav>
+        <div id="mobile-menu-open"
+            hx-on:click="document.getElementById('side-panel').classList.add('show'); document.getElementById('side-panel').classList.remove('hidden');">
+            &#9776;
+        </div>
+        <div id="side-panel" class="side-panel hidden">
+            <div id="mobile-menu-close" onclick="document.getElementById('side-panel').classList.remove('show');setTimeout(() => {document.getElementById('side-panel').classList.add('hidden');}, 300);">&#10005;</div>
+            <nav id="mobile-nav-container">
+                <a class="nav-item" href="../../index.html">Home</a> 
+                <a class="nav-item" href="../../projects.html">Projects</a> 
+                <a class="nav-item" href="../../dsa.html">DSA</a>
+                <a class="nav-item" href="../../writing.html">Writing</a> 
+                <a class="nav-item" href="https://github.com/josh-peters-99">GitHub</a> 
+            </nav>
+        </div>
+    </header>
+    <main>
+        <section>
+            <h2 class="page-title">The Lexer</h2>
+            <p>The purpose of the lexer is to analyze the source code and convert it into data structures called "tokens" that will be passed on to the parser.</p>
+            <p>I will be using the Go language for my interpreter. First, I will create a structure and definitions for the tokens.</p>
+            <code class="language-go">
+                package token
+
+                type TokenType string
+
+                type Token struct {
+                    Type TokenType
+                    Literal string
+                }
+
+                const (
+                    ILLEGAL = "ILLEGAL"
+                    EOF = "EOF"
+
+                    // Identifiers + literals
+                    IDENT = "IDENT"
+                    INT = "INT"
+
+                    // Operators
+                    ASSIGN = "="
+                    BANG = "!"
+                    PLUS = "+"
+                    MINUS = "-"
+                    ASTERISK = "*"
+                    SLASH = "/"
+                    LT = "<"
+                    GT = ">"
+                    EQ = "=="
+                    NOT_EQ = "!="
+
+                    // Delimeters
+                    COMMA = ","
+                    SEMICOLON = ";"
+                    LPAREN = "("
+                    RPAREN = ")"
+                    LBRACE = "{"
+                    RBRACE = "}"
+
+                    // Keywords
+                    FUNCTION = "FUNCTION"
+                    LET = "LET"
+                    TRUE = "TRUE"
+                    FALSE = "FALSE"
+                    IF = "IF"
+                    ELSE = "ELSE"
+                    RETURN = "RETURN"
+                )
+
+                var keywords = map[strimg]TokenType {
+                    "fn": FUNCTION,
+                    "let": LET,
+                    "true": TRUE,
+                    "false": FALSE,
+                    "if": IF,
+                    "else": ELSE,
+                    "return": RETURN,
+                }
+
+                func LookupIdent(ident string) TokenType {
+                    if tok, ok := keywords[ident]; ok {
+                        return tok
+                    }
+                    return IDENT
+                }
+            </code>
+            <pre>
+                <code class="language-go">
+                </code>
+            </pre>
+        </section>
+    </main>
+    <footer>
+        <p>&#169; 2025 Josh Peters Engineering</p>
+    </footer>
+    <script src="../../prism/prism.js"></script>
+</body>
+</html>
