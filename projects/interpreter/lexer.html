@@ -42,6 +42,16 @@
     <main>
         <section>
             <h2 class="page-title">The Lexer</h2>
+            <br><br>
+            <p>
+                <i>
+                    This is part 1 of a 5 part series where I go through the process of building an interpreter. This interpreter will be used to interpret the Glim programming language. You will learn best if you have to write the lexer yourself. 
+                    For this reason, I try to include as little source code as possible and attempt to explain the process to the best of my abilities. I have written my interpreter in Go but I am writing this article with the hope that it can 
+                    easily be used for the programming language of your preference. If you absolutely have to, I have included a link to the GiHub repository that contains the source code.
+                </i>
+            </p>
+
+            <!-- OVERVIEW SECTION -->
             <h2>Overview</h2>
             <p>
                 The purpose of the lexer is to analyze the source code and convert it into data structures called "tokens" that will be passed on to the parser. For example, if the following was fed into a lexer:
@@ -54,7 +64,7 @@
 [
     LET,
     IDENTIFIER("x")
-    EQUAL_SIGN,
+    ASSIGN,
     INTEGER(3),
     ASTERISK,
     INTEGER(5),
@@ -64,9 +74,11 @@
                 </pre>
                 As you can see, the lexer breaks raw input down into small pieces or "tokens" that can then be used by the parser to create an abstract syntax tree.
             </p>
+
+            <!-- TOKEN DEFINITION SECTION -->
             <h2>Token Definition</h2>
             <p>
-                Let's begin by defining our tokens. This is a generalization but most programming languages can be broken down into tokens that fit into 1 of 5 categories:
+                Let's begin by defining our tokens. A token in the Glim language can fit into 1 of 5 categories:
                 <br><br>
                 <b>1 - Identifiers:</b> These tokens are created by the user. They are commonly used as variable names or function names.
                 <pre>
@@ -118,7 +130,7 @@ let result = multiple(4, 5);
                         </tr>
                         <tr>
                             <td>Arithmetic</td>
-                            <td><code class="language-bash">+</code>,<code class="language-bash">-</code>,<code class="language-bash">*</code>,<code class="language-bash">/</code>,<code class="language-bash">%</code></td>
+                            <td><code class="language-bash">+</code>,<code class="language-bash">-</code>,<code class="language-bash">*</code>,<code class="language-bash">/</code></td>
                             <td>Perform math operations</td>
                         </tr>
                         <tr>
@@ -139,10 +151,144 @@ let result = multiple(4, 5);
                     </table>
                 </div>
                 <br><br>
-                <b>4 - Delimiters:</b> 
+                <b>4 - Delimiters:</b> Single characters or character pairs that are used to separate or enclose parts of the source code. Delimiters help give structure and boundries to the code. We will define the following delimiters:
                 <br><br>
-                <b>5 - Keywords:</b>
+                <div style="display: flex; justify-content: center;">
+                    <table style="width: 100%; text-align: left; border-spacing: 1em 1em;">
+                        <tr>
+                            <th>Delimiter</th>
+                            <th>Description</th>
+                        </tr>
+                        <tr>
+                            <td><code class="language-bash">(</code></td>
+                            <td>Start of group expression, parameters</td>
+                        </tr>
+                        <tr>
+                            <td><code class="language-bash">)</code></td>
+                            <td>End of group expression, parameters</td>
+                        </tr>
+                        <tr>
+                            <td><code class="language-bash">{</code></td>
+                            <td>Start of code block</td>
+                        </tr>
+                        <tr>
+                            <td><code class="language-bash">}</code></td>
+                            <td>End of code block</td>
+                        </tr>
+                        <tr>
+                            <td><code class="language-bash">[</code></td>
+                            <td>Start of array or index</td>
+                        </tr>
+                        <tr>
+                            <td><code class="language-bash">]</code></td>
+                            <td>End of array or index</td>
+                        </tr>
+                        <tr>
+                            <td><code class="language-bash">,</code></td>
+                            <td>Separate arguments or elements</td>
+                        </tr>
+                        <tr>
+                            <td><code class="language-bash">;</code></td>
+                            <td>End statements</td>
+                        </tr>
+                    </table>
+                </div>
+                <br><br>
+                <b>5 - Keywords:</b> These are reserved words that have predefined meaning. They are used by the programming language and CANNOT be used as identifiers.
+                <br><br>
+                <div style="display: flex; justify-content: center;">
+                    <table style="width: 100%; text-align: left; border-spacing: 1em 1em;">
+                        <tr>
+                            <th>Keyword</th>
+                            <th>Description</th>
+                        </tr>
+                        <tr>
+                            <td><code class="language-bash">let</code></td>
+                            <td>Declare a variable</td>
+                        </tr>
+                        <tr>
+                            <td><code class="language-bash">func</code></td>
+                            <td>Define a function</td>
+                        </tr>
+                        <tr>
+                            <td><code class="language-bash">return</code></td>
+                            <td>Return a value from a function</td>
+                        </tr>
+                        <tr>
+                            <td><code class="language-bash">if</code></td>
+                            <td>Start a conditional block</td>
+                        </tr>
+                        <tr>
+                            <td><code class="language-bash">else</code></td>
+                            <td>Provide an alternative block</td>
+                        </tr>
+                        <tr>
+                            <td><code class="language-bash">true</code></td>
+                            <td>Boolean literal</td>
+                        </tr>
+                        <tr>
+                            <td><code class="language-bash">false</code></td>
+                            <td>Boolean literal</td>
+                        </tr>
+                    </table>
+                </div>
+                <br><br>
+                It's <b>importat</b> to note that we will also be using two other special tokens. These two tokens don't fit into a specific category but are essential to our interpreter. The two special tokens are:
+                <br><br>
+                <div style="display: flex; justify-content: center;">
+                    <table style="width: 100%; text-align: left; border-spacing: 1em 1em;">
+                        <tr>
+                            <th>Token</th>
+                            <th>Description</th>
+                        </tr>
+                        <tr>
+                            <td><code class="language-bash">ILLEGAL</code></td>
+                            <td>Unkown token/character in source code</td>
+                        </tr>
+                        <tr>
+                            <td><code class="language-bash">EOF</code></td>
+                            <td>Signals end of file</td>
+                        </tr>
+                    </table>
+                </div>         
             </p>
+
+            <!-- LEXER SECTION -->
+             <h2>The Lexer</h2>
+             <p>
+                It's time to start on the actual lexer. To begin, lets create a composite type that defines our lexer. I am using Go, so I will create this using a struct but if you are using a OOP language, these can be instance attributes. Our composite type needs the 
+                following attributes:
+                <br><br>
+                <div style="display: flex; justify-content: center;">
+                    <table style="width: 100%; text-align: left; border-spacing: 1em 1em;">
+                        <tr>
+                            <th>Attribute</th>
+                            <th>Description</th>
+                        </tr>
+                        <tr>
+                            <td><code class="language-bash">input</code></td>
+                            <td>a string that is the raw source code</td>
+                        </tr>
+                        <tr>
+                            <td><code class="language-bash">curPosition</code></td>
+                            <td>an integer that points to the current position in the input string</td>
+                        </tr>
+                        <tr>
+                            <td><code class="language-bash">nextPosition</code></td>
+                            <td>an integer that points to the next position in the input string</td>
+                        </tr>
+                        <tr>
+                            <td><code class="language-bash">curChar</code></td>
+                            <td>the current character under examination</td>
+                        </tr>
+                    </table>
+                </div>
+             </p>
+             <p>
+                If you are using an OOP language, then be sure to pass the input string into the constructor of the <code class="language-bash">Lexer</code> class.
+                <br><br>
+                Next, we need to create a function that will initialize a new instance of a lexer. Within this function, we will 
+             </p>
         </section>
     </main>
     <footer>
