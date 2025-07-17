@@ -66,17 +66,82 @@
             </p>
             <h2>Token Definition</h2>
             <p>
-                Let's begin my defining our tokens. This is a generalization but most programming languages can be broken down into tokens that fit into 1 of 5 categories:
+                Let's begin by defining our tokens. This is a generalization but most programming languages can be broken down into tokens that fit into 1 of 5 categories:
                 <br><br>
-                - Identifiers: These tokens are created by the user. They are commonly used as variable names or function names.
+                <b>1 - Identifiers:</b> These tokens are created by the user. They are commonly used as variable names or function names.
+                <pre>
+                    <code class="language-bash">
+let multiple = func(x, y) {
+    x * y;
+};
+
+let result = multiple(4, 5);
+                    </code>
+                </pre>
+                In the example above, the function name <code class="language-bash">multiple</code> would be considered an identifier. The variable name <code class="language-bash">result</code> would also be considered an identifier.
                 <br><br>
-                - Literals
+                <b>2 - Literals:</b> These are data types used to represent a constant value. The literals we will be creating for our programming language are:
                 <br><br>
-                - Operators
+                <div style="display: flex; justify-content: center;">
+                    <table style="width: 100%; text-align: left; border-spacing: 1em 1em;">
+                        <tr>
+                            <th>Type</th>
+                            <th>Example</th>
+                            <th>Description</th>
+                        </tr>
+                        <tr>
+                            <td>Integer</td>
+                            <td><code class="language-bash">42</code></td>
+                            <td>A whole number</td>
+                        </tr>
+                        <tr>
+                            <td>String</td>
+                            <td><code class="language-bash">"hello"</code></td>
+                            <td>A sequence of characters</td>
+                        </tr>
+                        <tr>
+                            <td>Boolean</td>
+                            <td><code class="language-bash">true</code></td>
+                            <td>A boolean literal</td>
+                        </tr>
+                    </table>
+                </div>
                 <br><br>
-                - Delimiters
+                <b>3 - Operators:</b> Symbols, or a sequence of symbols, that perform a specific operation on a value, variable, or expression. The operators we will be using are:
                 <br><br>
-                - Keywords
+                <div style="display: flex; justify-content: center;">
+                    <table style="width: 100%; text-align: left; border-spacing: 1em 1em;">
+                        <tr>
+                            <th>Category</th>
+                            <th>Example</th>
+                            <th>Description</th>
+                        </tr>
+                        <tr>
+                            <td>Arithmetic</td>
+                            <td><code class="language-bash">+</code>,<code class="language-bash">-</code>,<code class="language-bash">*</code>,<code class="language-bash">/</code>,<code class="language-bash">%</code></td>
+                            <td>Perform math operations</td>
+                        </tr>
+                        <tr>
+                            <td>Assignment</td>
+                            <td><code class="language-bash">=</code></td>
+                            <td>Assign values to variables</td>
+                        </tr>
+                        <tr>
+                            <td>Comparison</td>
+                            <td><code class="language-bash">==</code>,<code class="language-bash">!=</code>,<code class="language-bash"><</code>,<code class="language-bash">></code>,<code class="language-bash"><=</code>,<code class="language-bash">>=</code></td>
+                            <td>Compare values</td>
+                        </tr>
+                        <tr>
+                            <td>Logical</td>
+                            <td><code class="language-bash">&&</code>,<code class="language-bash">||</code></td>
+                            <td>Combines or inverts boolean values</td>
+                        </tr>
+                    </table>
+                </div>
+                <br><br>
+                <b>4 - Delimiters:</b> 
+                <br><br>
+                <b>5 - Keywords:</b>
             </p>
         </section>
     </main>
