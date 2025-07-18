@@ -291,9 +291,19 @@ let result = multiple(4, 5);
                 If you are using an OOP language like Python or Java, then you can require the input source code as a parameter to your constructor of the lexer.
                 <br><br>
                 In both cases, when we initialize a new instance of the lexer we will need to pass the input source code as an argument. We will then need to kickstart the process of iterating through the input source code 
-                string. To do this we will need to create our first method of the lexer:
+                string. To do this we will need to create the <code class="language-bash">nextChar()</code> method for our lexer.
                 <br><br>
-                <code class="language-bash">nextChar()</code> will be 
+                The <code class="language-bash">nextChar()</code> method will be used to read the next token in the sequence of the input string. Inside this function we will:
+                <br>
+                <p style="display: block; padding-left: 2em; padding-right: 2em;">
+                    Create a conditional statement to check if the <code class="language-bash">curPosition</code> property in the lexer is <code class="language-bash">>=</code> 
+                    the length of the input string. If it is, then that means we have reached the end of the input string and we need to signal to our lexer that 
+                    we have reached the end of the file (<code class="language-bash">EOF</code>). We do this by setting the <code class="language-bash">curChar</code> to 0.
+                </p>
+                <p style="display: block; padding-left: 2em; padding-right: 2em;">
+                    If the condition is false, then we need to find the character in the input string that is a the index location of <code class="language-bash">curPosition</code>
+                    and set <code class="language-bash">curChar</code> to equal that character.
+                </p>
              </p>
         </section>
     </main>
