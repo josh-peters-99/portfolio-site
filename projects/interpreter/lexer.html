@@ -256,8 +256,8 @@ let result = multiple(4, 5);
             <!-- LEXER SECTION -->
              <h2>The Lexer</h2>
              <p>
-                It's time to start on the actual lexer. To begin, lets create a composite type that defines our lexer. I am using Go, so I will create this using a struct but if you are using a OOP language, these can be instance attributes. Our composite type needs the 
-                following attributes:
+                It's time to start on the actual lexer. To begin, lets create a composite type that defines our lexer. I am using Go, so I will use a struct. If you are using a OOP language, these can be instance attributes for the lexer class. 
+                Our composite type needs the following attributes:
                 <br><br>
                 <div style="display: flex; justify-content: center;">
                     <table style="width: 100%; text-align: left; border-spacing: 1em 1em;">
@@ -284,10 +284,16 @@ let result = multiple(4, 5);
                     </table>
                 </div>
              </p>
+
              <p>
-                If you are using an OOP language, then be sure to pass the input string into the constructor of the <code class="language-bash">Lexer</code> class.
+                If you are using a procedural language like Go or C, then you will need to create a separate function that will take, as a parameter, the input string and return a pointer to a new instance of the lexer.
                 <br><br>
-                Next, we need to create a function that will initialize a new instance of a lexer. Within this function, we will 
+                If you are using an OOP language like Python or Java, then you can require the input source code as a parameter to your constructor of the lexer.
+                <br><br>
+                In both cases, when we initialize a new instance of the lexer we will need to pass the input source code as an argument. We will then need to kickstart the process of iterating through the input source code 
+                string. To do this we will need to create our first method of the lexer:
+                <br><br>
+                <code class="language-bash">nextChar()</code> will be 
              </p>
         </section>
     </main>
