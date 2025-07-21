@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/htmx.org@2.0.6/dist/htmx.min.js" integrity="sha384-Akqfrbj/HpNVo8k11SXBb6TlBWmXXlYQrCSqEWmyKJe+hDm3Z/B2WVG4smwBkRVm" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+    <link href="../../prism/prism.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../../base.css">
+    <!-- <link rel="stylesheet" href="../base-dsa.css"/> -->
+    <link rel="stylesheet" href="/portfolio-site/dsa/base-dsa.css">
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
+    <title>Josh Peters</title>
+</head>
+<body>
+    <header>
+        <h1>Josh Peters</h1>
+        <nav id="nav-container">
+            | <a class="nav-item" href="../../index.html">Home</a> 
+            | <a class="nav-item" href="../../projects.html">Projects</a> 
+            | <a class="nav-item" href="../../dsa.html">DSA</a>
+            | <a class="nav-item" href="../../writing.html">Writing</a> 
+            | <a class="nav-item" href="https://github.com/josh-peters-99">GitHub<span class="external-arrow">&#8594;</span></a> 
+            |
+        </nav>
+        <div id="mobile-menu-open"
+            hx-on:click="document.getElementById('side-panel').classList.add('show'); document.getElementById('side-panel').classList.remove('hidden');">
+            &#9776;
+        </div>
+        <div id="side-panel" class="side-panel hidden">
+            <div id="mobile-menu-close" onclick="document.getElementById('side-panel').classList.remove('show');setTimeout(() => {document.getElementById('side-panel').classList.add('hidden');}, 300);">&#10005;</div>
+            <nav id="mobile-nav-container">
+                <a class="nav-item" href="../../index.html">Home</a> 
+                <a class="nav-item" href="../../projects.html">Projects</a> 
+                <a class="nav-item" href="../../dsa.html">DSA</a>
+                <a class="nav-item" href="../../writing.html">Writing</a> 
+                <a class="nav-item" href="https://github.com/josh-peters-99">GitHub</a> 
+            </nav>
+        </div>
+    </header>
+    <main>
+      <section>
+        <h2 class="page-title">Remove the K<sup>th</sup> Last Node From a Linked List</h2>
+        <p><b>Pattern: </b>Linked Lists</p>
+        <p><b>Problem: </b>
+            Return the head of a singly linked list after removing the kth node from the end of it.
+            <br><br>
+            Example:
+        </p>
+        <div id="ascii-container">
+            <pre class="ascii-code">
+k = 2
+
+( 1 ) --> ( 2 ) --> ( 4 ) --> ( 7 ) --> ( 3 )
+
+                      <span style="font-size: xx-large">&#8595;</span>
+
+( 1 ) --> ( 2 ) --> ( 4 ) ------------> ( 1 )
+            </pre>
+        </div>
+        <p><b>Key Insight: </b>
+            In this problem, we will use two pointers to solve it. The first pointer, will be the leader and the second will be the trailer. Both pointers will start at index 0. 
+            Then we will move the leader <code class="language-bash">k</code> positions forward. After that, we will move both the leader and trailer one-by-one through the linked list 
+            until the leader reaches the end. Since the leader started <code class="language-bash">k</code> positions ahead of the trailer, whichever node the trailer lands on, will be 
+            the node that is 1 position behind the node we need to remove. So we simply set <code class="language-bash">trailer.next = trailer.next.next</code> to reomve the K<sup>th</sup> 
+            node.
+            <br>
+            <br>
+            One last thing we need to take into consideration is if the head node is the node we need to remove. Since there is no node before head, we cannot perform the removal the way we 
+            did above. To solve this, we will create a dummy node and place it before our head and start traversing the linked list from there.
+        </p>
+        <p><b>Time Complexity: </b>O(n) is the time complexity. Where n is the number of nodes in the linked list.</p>
+        <p><b>Space Complexity: </b>is O(1).</p>
+        <p><b>Code:</b></p>
+        <pre>
+            <code class="language-python">
+"""
+Definition of ListNode:
+class ListNode:
+    def __init__(self, val=None, next=None):
+        self.val = val
+        self.next = next
+"""
+
+def remove_kth_last_node(head: ListNode, k: int) -> ListNode:
+    dummy = ListNode(-1)
+    dummy.next = head
+    trailer = leader = dummy
+    for _ in range(k):
+        leader = leader.next
+        if not leader:
+            return head
+    while leader.next:
+        leader = leader.next
+        trailer = trailer.next
+    trailer.next = trailer.next.next
+    return dummy.next
+            </code>
+        </pre>
+      </section>
+    </main>
+    <footer>
+        <p>&#169; 2025 Josh Peters Engineering</p>
+    </footer>
+    <script src="../../prism/prism.js"></script>
+</body>
+</html>
