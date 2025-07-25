@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/htmx.org@2.0.6/dist/htmx.min.js" integrity="sha384-Akqfrbj/HpNVo8k11SXBb6TlBWmXXlYQrCSqEWmyKJe+hDm3Z/B2WVG4smwBkRVm" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+    <link href="../../prism/prism.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../../base.css">
+    <link rel="stylesheet" href="/portfolio-site/dsa/base-dsa.css">
+    <!-- <link rel="stylesheet" href="../base-dsa.css" /> -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
+    <title>Josh Peters</title>
+</head>
+<body>
+    <header>
+        <h1>Josh Peters</h1>
+        <nav id="nav-container">
+            | <a class="nav-item" href="../../index.html">Home</a> 
+            | <a class="nav-item" href="../../projects.html">Projects</a> 
+            | <a class="nav-item" href="../../dsa.html">DSA</a>
+            | <a class="nav-item" href="../../writing.html">Writing</a> 
+            | <a class="nav-item" href="https://github.com/josh-peters-99">GitHub<span class="external-arrow">&#8594;</span></a> 
+            |
+        </nav>
+        <div id="mobile-menu-open"
+            hx-on:click="document.getElementById('side-panel').classList.add('show'); document.getElementById('side-panel').classList.remove('hidden');">
+            &#9776;
+        </div>
+        <div id="side-panel" class="side-panel hidden">
+            <div id="mobile-menu-close" onclick="document.getElementById('side-panel').classList.remove('show');setTimeout(() => {document.getElementById('side-panel').classList.add('hidden');}, 300);">&#10005;</div>
+            <nav id="mobile-nav-container">
+                <a class="nav-item" href="../../index.html">Home</a> 
+                <a class="nav-item" href="../../projects.html">Projects</a> 
+                <a class="nav-item" href="../../dsa.html">DSA</a>
+                <a class="nav-item" href="../../writing.html">Writing</a> 
+                <a class="nav-item" href="https://github.com/josh-peters-99">GitHub</a> 
+            </nav>
+        </div>
+    </header>
+    <main>
+        <section>
+            <h2 class="page-title">Largest Container</h2>
+
+            <p><b>Pattern: </b>Two Pointers</p>
+
+            <p><b>Problem: </b>
+                You are given an array of numbers, each representing the height of a vertical line on a graph. A container can be formed with any pair of these lines, along with the x-axis of the graph. 
+                Return the amount of water which the largest container can hold.
+            </p>
+            <div id="ascii-container">
+                <pre class="ascii-code">
+8 +
+  |           |
+7 +           |
+  |       |   |       |
+6 +       |   |       |
+  |       |xxx|xxxxxxx|xxx|
+5 +       |xxx|xxxxxxx|xxx|
+  |       |xxx|xxxxxxx|xxx|
+4 +       |xxx|xxxxxxx|xxx|
+  |       |xxx|xxxxxxx|xxx|
+3 +       |xxx|xxxxxxx|xxx|
+  |       |xxx|xxx|xxx|xxx|
+2 +       |xxx|xxx|xxx|xxx|
+  |   |   |xxx|xxx|xxx|xxx|
+1 +   |   |xxx|xxx|xxx|xxx|
+  |   |   |xxx|xxx|xxx|xxx|
+0 +---+---+---+---+---+---+
+      0   1   2   3   4   5
+                </pre>
+            </div>
+            <p>
+                Input: <code class="language-bash">height = [2, 7, 8, 3, 7, 6]</code>
+                <br>
+                Output: <code class="language-bash">24</code>
+            </p>
+
+            <p><b>Key Insight: </b>
+                We will utilize two pointers to solve this problem. Starting with the left pointer at the beginning of the array and the right pointer at the end of the array. First, the amount of water 
+                between two lines can be calculate by the following equation: <code class="language-bash">min(heights[i], heights[j]) * (j - i)</code>, where <code class="language-bash">j - i</code> 
+                is the width of the container. Store the initial amount of water in a variable such as <code class="language-bash">max_water</code>. While the left line is less than the right line, 
+                we will do the following:
+                <br><br>
+                1. Cacluate the amount of water and compare it to the current max amount of water. If it is greater then replace the value in <code class="language-bash">max_water</code>. 
+                <br><br>
+                2. If the left line is smaller, then move the left pointer inward.
+                <br><br>
+                3. If the right line is smaller, then move the right pointer inward.
+                <br><br>
+                4. If both lines are the same value, move both pointers inward.
+            </p>
+            <p><b>Time Complexity: </b>
+                The time complexity will be O(n) where n is the length of the array.
+            </p>
+            <p><b>Space Complexity: </b>The space complexity will be O(1).</p>
+            <p><b>Code:</b></p>
+            <pre>
+                <code class="language-python">
+from typing import List
+
+def largest_container(heights: List[int]) -> int:
+    left, right = 0, len(heights) - 1
+    max_water = 0
+    while left < right:
+        water = min(heights[left], heights[right]) * (right - left)
+        max_water = max(water, max_water)
+        if heights[left] < heights[right]:
+            left += 1
+        elif heights[left] > heights[right]:
+            right -= 1
+        else:
+            left += 1
+            right -= 1
+    return max_water
+                </code>
+            </pre>
+        </section>
+    </main>
+    <footer>
+        <p>&#169; 2025 Josh Peters Engineering</p>
+    </footer>
+    <script src="../../prism/prism.js"></script>
+</body>
+</html>

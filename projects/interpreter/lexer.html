@@ -45,9 +45,9 @@
             <br><br>
             <p>
                 <i>
-                    This is part 1 of a 5 part series where I go through the process of building an interpreter. This interpreter will be used to interpret the Glim programming language. You will learn best if you have to write the lexer yourself. 
-                    For this reason, I try to include as little source code as possible and attempt to explain the process to the best of my abilities. I have written my interpreter in Go but I am writing this article with the hope that it can 
-                    easily be used for the programming language of your preference. If you absolutely have to, I have included a link to the GiHub repository that contains the source code.
+                    This is part 1 of a 5 part series where I go through the process of building an interpreter. This interpreter will be used to interpret the Glim programming language. 
+                    I have choosen to write my interpreter in the Go programming language. Here is a link to the complete source code on GitHub: 
+                    <a href="#">glimi<span class="external-arrow">&#8594;</span></a>
                 </i>
             </p>
 
@@ -145,7 +145,7 @@ let result = multiple(4, 5);
                         </tr>
                         <tr>
                             <td>Logical</td>
-                            <td><code class="language-bash">&&</code>,<code class="language-bash">||</code></td>
+                            <td><code class="language-bash">&&</code>,<code class="language-bash">||</code>,<code class="language-bash">!</code></td>
                             <td>Combines or inverts boolean values</td>
                         </tr>
                     </table>
@@ -270,7 +270,7 @@ let result = multiple(4, 5);
                             <td>a string that is the raw source code</td>
                         </tr>
                         <tr>
-                            <td><code class="language-bash">curPosition</code></td>
+                            <td><code class="language-bash">currPosition</code></td>
                             <td>an integer that points to the current position in the input string</td>
                         </tr>
                         <tr>
@@ -278,7 +278,7 @@ let result = multiple(4, 5);
                             <td>an integer that points to the next position in the input string</td>
                         </tr>
                         <tr>
-                            <td><code class="language-bash">curChar</code></td>
+                            <td><code class="language-bash">currChar</code></td>
                             <td>the current character under examination</td>
                         </tr>
                     </table>
@@ -288,22 +288,33 @@ let result = multiple(4, 5);
              <p>
                 If you are using a procedural language like Go or C, then you will need to create a separate function that will take, as a parameter, the input string and return a pointer to a new instance of the lexer.
                 <br><br>
-                If you are using an OOP language like Python or Java, then you can require the input source code as a parameter to your constructor of the lexer.
+                If you are using an OOP language like Python or Java, then you can take the input source code as a parameter to your constructor of the lexer.
                 <br><br>
                 In both cases, when we initialize a new instance of the lexer we will need to pass the input source code as an argument. We will then need to kickstart the process of iterating through the input source code 
                 string. To do this we will need to create the <code class="language-bash">nextChar()</code> method for our lexer.
                 <br><br>
-                The <code class="language-bash">nextChar()</code> method will be used to read the next token in the sequence of the input string. Inside this function we will:
+                The <code class="language-bash">nextChar()</code> method will be used to read the next token in the sequence of the input string. For input, the 
+                <code class="language-bash">nextChar()</code> method will take as a paramter an instance of the lexer. Inside this method we will:
                 <br>
                 <p style="display: block; padding-left: 2em; padding-right: 2em;">
-                    Create a conditional statement to check if the <code class="language-bash">curPosition</code> property in the lexer is <code class="language-bash">>=</code> 
+                    Create a conditional statement to check if the <code class="language-bash">currPosition</code> property in the lexer is <code class="language-bash">>=</code> 
                     the length of the input string. If it is, then that means we have reached the end of the input string and we need to signal to our lexer that 
-                    we have reached the end of the file (<code class="language-bash">EOF</code>). We do this by setting the <code class="language-bash">curChar</code> to 0.
+                    we have reached the end of the file (<code class="language-bash">EOF</code>). We do this by setting the <code class="language-bash">currChar</code> to 0.
                 </p>
                 <p style="display: block; padding-left: 2em; padding-right: 2em;">
-                    If the condition is false, then we need to find the character in the input string that is a the index location of <code class="language-bash">curPosition</code>
-                    and set <code class="language-bash">curChar</code> to equal that character.
+                    If the condition is false, then we need to find the character in the input string that is a the index location of <code class="language-bash">currPosition</code>
+                    and set <code class="language-bash">currChar</code> to equal that character.
                 </p>
+                <p style="display: block; padding-left: 2em; padding-right: 2em;">
+                    Whether or not the condition is false, we will need to increment the <code class="language-bash">currPosition</code> to equal the <code class="language-bash">nextPosition</code>. 
+                    Then we will also need to increment the <code class="language-bash">nextPosition</code> by 1.
+                </p>
+                <br><br>
+                Now, we can call the <code class="language-bash">nextChar()</code> method in our new instantiation of the lexer to begin traversing the input string.
+                <br><br>
+                We need to add another method to our Lexer: <code class="language-bash">scanToken()</code>. This method will look at the current character under examination and 
+                return a token depending on which character it is. For it's parameters, we need to take in a instance of the lexer and return a token type.
+                <br>
                 <p style="display: block; padding-left: 2em; padding-right: 2em;">
                     
                 </p>
