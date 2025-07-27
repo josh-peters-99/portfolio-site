@@ -76,6 +76,60 @@
             <p><b>Space Complexity: </b>O(1) we are storing the 0 markers within the matrix itself, so the space complexity is constant.</p>
             <p><b>Code:</b></p>
             <pre>
+                <code class="language-go">
+func setZeroes(matrix [][]int)  {
+    if len(matrix) == 0 || len(matrix[0]) == 0 {
+        return
+    }
+
+    n, m := len(matrix), len(matrix[0])
+
+    first_row_has_zero := false
+    for c := 0; c < m; c++ {
+        if matrix[0][c] == 0 {
+            first_row_has_zero = true
+        }
+    }
+
+    first_col_has_zero := false
+    for r := 0; r < n; r++ {
+        if matrix[r][0] == 0 {
+            first_col_has_zero = true
+        }
+    }
+
+    for r := 1; r < n; r++ {
+        for c := 1; c < m; c++ {
+            if matrix[r][c] == 0 {
+                matrix[r][0] = 0
+                matrix[0][c] = 0
+            }
+        }
+    }
+
+    for r := 1; r < n; r++ {
+        for c := 1; c < m; c++ {
+            if matrix[r][0] == 0 || matrix[0][c] == 0 {
+                matrix[r][c] = 0
+            }
+        }
+    }
+
+    if first_row_has_zero {
+        for c := 0; c < m; c++ {
+            matrix[0][c] = 0
+        }
+    }
+
+    if first_col_has_zero {
+        for r := 0; r < n; r++ {
+            matrix[r][0] = 0
+        }
+    }
+}
+                </code>
+            </pre>
+            <!-- <pre>
                 <code class="language-python">
 from typing import List
 
@@ -123,7 +177,7 @@ def zero_striping(matrix: List[List[int]]) -> None:
         for r in range(n):
             matrix[r][0] = 0
                 </code>
-            </pre>
+            </pre> -->
         </section>
     </main>
     <footer>
