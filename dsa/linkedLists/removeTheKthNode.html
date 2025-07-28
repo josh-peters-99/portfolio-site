@@ -76,6 +76,37 @@ k = 2
         <p><b>Space Complexity: </b>is O(1).</p>
         <p><b>Code:</b></p>
         <pre>
+            <code class="language-go">
+/**
+ * Definition for singly-linked list.
+ * type ListNode struct {
+ *     Val int
+ *     Next *ListNode
+ * }
+ */
+func removeNthFromEnd(head *ListNode, n int) *ListNode {
+    dummy := &ListNode{Val: -1, Next: head}
+    dummy.Next = head
+    trailer := dummy
+    leader := dummy
+    for i := 0; i < n; i++ {
+        if leader.Next == nil {
+            return head
+        }
+        leader = leader.Next
+    }
+
+    for leader.Next != nil {
+        leader = leader.Next
+        trailer = trailer.Next
+    }
+
+    trailer.Next = trailer.Next.Next
+    return dummy.Next
+}
+            </code>
+        </pre>
+        <!-- <pre>
             <code class="language-python">
 """
 Definition of ListNode:
@@ -99,7 +130,7 @@ def remove_kth_last_node(head: ListNode, k: int) -> ListNode:
     trailer.next = trailer.next.next
     return dummy.next
             </code>
-        </pre>
+        </pre> -->
       </section>
     </main>
     <footer>
