@@ -11,8 +11,12 @@ body {
     height: 100vh;
     margin: 0 auto;
     padding: 4rem 2rem;
-    font-family: 'Source Code Pro', monospace;
+    font-family: "Noto Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
     font-style: normal;
+    font-variation-settings: "wdth" 100;
+    /* font-style: normal; */
     color: #F2F2F2;
     max-width: 800px;
 }
