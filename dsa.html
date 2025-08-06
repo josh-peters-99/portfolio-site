@@ -10,35 +10,16 @@
     <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
     <link href="prism/prism.css" rel="stylesheet" />
     <link rel="stylesheet" href="base.css">
-    <link rel="stylesheet" href="dsa.css">
     <link rel="icon" type="image/svg+xml" href="favicon.svg" />
     <title>Josh Peters</title>
+    <script type="module" src="components/nav-component.js"></script>
+    <script type="module" src="components/nav-mobile-component.js"></script>
 </head>
 <body>
     <header>
         <h1>Josh Peters</h1>
-        <nav id="nav-container">
-            | <a class="nav-item" href="index.html">Home</a> 
-            | <a class="nav-item" href="projects.html">Projects</a> 
-            | <a class="nav-item" href="dsa.html">DSA</a>
-            | <a class="nav-item" href="writing.html">Writing</a> 
-            | <a class="nav-item" href="https://github.com/josh-peters-99">GitHub<span class="external-arrow">&#8594;</span></a> 
-            |
-        </nav>
-        <div id="mobile-menu-open"
-            hx-on:click="document.getElementById('side-panel').classList.add('show'); document.getElementById('side-panel').classList.remove('hidden');">
-            &#9776;
-        </div>
-        <div id="side-panel" class="side-panel hidden">
-            <div id="mobile-menu-close" onclick="document.getElementById('side-panel').classList.remove('show');setTimeout(() => {document.getElementById('side-panel').classList.add('hidden');}, 300);">&#10005;</div>
-            <nav id="mobile-nav-container">
-                <a class="nav-item" href="index.html">Home</a> 
-                <a class="nav-item" href="projects.html">Projects</a> 
-                <a class="nav-item" href="dsa.html">DSA</a>
-                <a class="nav-item" href="writing.html">Writing</a> 
-                <a class="nav-item" href="https://github.com/josh-peters-99">GitHub</a> 
-            </nav>
-        </div>
+        <nav-bar></nav-bar>
+        <nav-mobile></nav-mobile>
     </header>
     <main>
 

@@ -5,9 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.jsdelivr.net/npm/htmx.org@2.0.6/dist/htmx.min.js" integrity="sha384-Akqfrbj/HpNVo8k11SXBb6TlBWmXXlYQrCSqEWmyKJe+hDm3Z/B2WVG4smwBkRVm" crossorigin="anonymous"></script>
     <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
-    <!-- <link rel="preconnect" href="https://fonts.googleapis.com"> -->
-    <!-- <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> -->
-    <!-- <link rel="preconnect" href="https://fonts.googleapis.com"> -->
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
@@ -15,32 +12,14 @@
     <link rel="stylesheet" href="index.css">
     <link rel="icon" type="image/svg+xml" href="favicon.svg" />
     <title>Josh Peters</title>
+    <script type="module" src="components/nav-component.js"></script>
+    <script type="module" src="components/nav-mobile-component.js"></script>
 </head>
 <body>
     <header>
         <h1>Josh Peters</h1>
-        <nav id="nav-container">
-            | <a class="nav-item" href="index.html">Home</a> 
-            | <a class="nav-item" href="projects.html">Projects</a> 
-            | <a class="nav-item" href="dsa.html">DSA</a>
-            | <a class="nav-item" href="writing.html">Writing</a> 
-            | <a class="nav-item" href="https://github.com/josh-peters-99">GitHub<span class="external-arrow">&#8594;</span></a> 
-            |
-        </nav>
-        <div id="mobile-menu-open"
-            hx-on:click="document.getElementById('side-panel').classList.add('show'); document.getElementById('side-panel').classList.remove('hidden');">
-            &#9776;
-        </div>
-        <div id="side-panel" class="side-panel hidden">
-            <div id="mobile-menu-close" onclick="document.getElementById('side-panel').classList.remove('show');setTimeout(() => {document.getElementById('side-panel').classList.add('hidden');}, 300);">&#10005;</div>
-            <nav id="mobile-nav-container">
-                <a class="nav-item" href="index.html">Home</a> 
-                <a class="nav-item" href="projects.html">Projects</a> 
-                <a class="nav-item" href="dsa.html">DSA</a>
-                <a class="nav-item" href="writing.html">Writing</a> 
-                <a class="nav-item" href="https://github.com/josh-peters-99">GitHub</a> 
-            </nav>
-        </div>
+        <nav-bar></nav-bar>
+        <nav-mobile></nav-mobile>
     </header>
     <main>
         <section id="hero">
@@ -77,14 +56,14 @@
                     `!^"'
             </pre>
             <p id="hero-text">
-                I'm a software engineer based in Utah. I write code in Go and focus on building systems from scratch &#8213; compilers, interpreters, text editors, databases, and developer tools.
+                I'm a software engineer based in Utah. I write most of my code in Go and focus on building systems from scratch &#8213; compilers, interpreters, text editors, databases, and developer tools.
                 <br><br>
                 Right now, I'm writing my own interpreter for the Glim programming language. I also spend time solving algorithmic problems and writing about what I learn.
                 <br><br>
                 I graduated with a degree in Computer Science. During my undergrad, I worked as a Computer Science Tutor and as a QA Software Engineer Intern. I currently work as a software engineer 
                 in the industrial automation space.
                 <br><br>
-                My goal is to understand how software really works &#8213; and to build as much of it myself as possilbe.
+                My goal is to master software engineering fundamentals by building foundational systems and core tools from the ground up.
             </p>
         </section>
 

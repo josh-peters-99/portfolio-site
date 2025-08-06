@@ -41,8 +41,19 @@ h2 {
 
 /* Small desktops */
 @media (min-width: 1024px) {
+  h2 {
+    text-align: left;
+  }
   #ascii-computer {
     font-size: small;
+  }
+
+  #hero-text {
+    text-align: left;
+  }
+
+  #working-list {
+    text-align: left;
   }
 }
 
