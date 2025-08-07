@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/htmx.org@2.0.6/dist/htmx.min.js" integrity="sha384-Akqfrbj/HpNVo8k11SXBb6TlBWmXXlYQrCSqEWmyKJe+hDm3Z/B2WVG4smwBkRVm" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+    <link href="../../prism/prism.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../../base.css">
+    <link rel="stylesheet" href="/portfolio-site/dsa/base-dsa.css">
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
+    <title>Josh Peters</title>
+    <script type="module" src="../../components/nav-component.js"></script>
+    <script type="module" src="../../components/nav-mobile-component.js"></script>
+    <script type="module" src="../../components/footer-component.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Josh Peters</h1>
+        <nav-bar></nav-bar>
+        <nav-mobile></nav-mobile>
+    </header>
+    <main>
+      <section>
+        <h2 class="page-title">LRU Cache</h2>
+        <p><b>Pattern: </b>Linked Lists and Hashmaps</p>
+        <p><b>Problem: </b>
+            Design and implement a data structure for the Least Recently Used (LRU) cache that supports the following operations:
+            <ul>
+              <li><code class="language-bash">LRUCache(int capacity)</code> Initialize the LRU cache with positive size <code class="language-bash">capacity</code></li>
+              <li><code class="language-bash">int get(int key)</code> Return the value of the <code class="language-bash">key</code>. Return <code class="language-bash">-1</code> if the key doesn't exist.</li>
+              <li><code class="language-bash">void put(int key, int value)</code> Add a key and its value to the cache or update the value of the <code class="language-bash">key</code> if it already exists. If the number of keys in the cache exceeds the <code class="language-bash">capacity</code>, evict the least recently used element.</li>
+            </ul>
+        </p>
+        <!-- <p><b>Example: </b> -->
+        <!-- <br> -->
+            <!-- <code class="language-bash"> -->
+              <!-- Input: [put(1, 100), put(2, 250), get(2), put(4, 300), put(3, 200), get(4), get(1)], capacity = 300 -->
+            <!-- </code> -->
+            <!-- <br> -->
+            <!-- <code class="language-bash"> -->
+              <!-- Output: [250, 300, -1] -->
+            <!-- </code> -->
+        <!-- </p> -->
+        <p><b>Key Insight: </b>
+            Below, is a visual of a LRU cache. In this example, the LRU cache currently holds 3 elements and has reached its full capacity. The key-value pairs are ordered from the least recently used (left) to the most recently used (right):
+            <br><br>
+            <div id="ascii-container">
+                <pre class="ascii-code">
+capacity = 3 
++-------------------------------------+
+| +---------+ +---------+ +---------+ |
+| | 1 | 100 | | 2 | 200 | | 4 | 400 | |
+| +---------+ +---------+ +---------+ |
++-------------------------------------+
+-------------------------------------->
+least recently            most recently
+used                      used
+                </pre>
+            </div>
+            Let's insert a ndw key-value pair into the cache:
+            <br><br>
+            <div id="ascii-container">
+              <pre class="ascii-code">
+                      capacity = 3 
+                      +-------------------------------------+
+    +---------+       | +---------+ +---------+ +---------+ |
+put | 3 | 300 | ----> | | 1 | 100 | | 2 | 200 | | 4 | 400 | |
+    +---------+       | +---------+ +---------+ +---------+ |
+                      +-------------------------------------+
+                      -------------------------------------->
+              </pre>
+            </div>
+            The new key-value pair added to the cache will become the most recent in the cache, therefore we should add it the end of the cache. Since the cache is at maximum capacity, we must remove the least recently used pair. After the least recently pair has been evicted and the new pair added, the cache will look like this:
+            <br><br>
+            <div id="ascii-container">
+              <pre class="ascii-code">
++-------------------------------------+
+| +---------+ +---------+ +---------+ |
+| | 2 | 200 | | 4 | 400 | | 3 | 300 | |
+| +---------+ +---------+ +---------+ |
++-------------------------------------+
+-------------------------------------->
+              </pre>
+            </div>
+            The <code class="language-bash">put</code> operation can be summarized with following steps:
+            <ol>
+              <li>Remove the least recently used key-value pair from the cache.</li>
+              <li>Add the new key-value pair to the most recently used end of the the cache.</li>
+            </ol>
+            <br><br>
+            To perform a <code class="language-bash">get</code> operation, the key-value pair we access will become the most recently used pair:
+            <br><br>
+            <div id="ascii-container">
+              <pre class="ascii-code">
+                    move to most recently used end
+                    +------------------------------+
+                    |                              |
+             +------|------------------------------|-+
+             | +---------+ +---------+ +---------+ | |
+get(2) ----> | | 2 | 200 | | 4 | 400 | | 3 | 300 | v |
+             | +---------+ +---------+ +---------+   |
+             +---------------------------------------+
+             ---------------------------------------->
+        </p>
+        <p><b>Time Complexity: </b>O(n) is the time complexity. Where n is the number of nodes in the linked list.</p>
+        <p><b>Space Complexity: </b>is O(1).</p>
+        <p><b>Code:</b></p>
+        <pre>
+            <code class="language-go"></code>
+        </pre>
+      </section>
+    </main>
+    <footer-component></footer-component>
+    <script src="../../prism/prism.js"></script>
+</body>
+</html>
