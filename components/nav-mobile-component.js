@@ -53,7 +53,7 @@ class NavMobile extends HTMLElement {
 
         @media(min-width: 768px) {
             #mobile-menu-open {
-            display: none;
+              display: none;
             }
         }
     </style>
